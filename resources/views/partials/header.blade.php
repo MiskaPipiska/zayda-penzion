@@ -1,6 +1,6 @@
 <header>
     <div class="container">
-        <div class="wrap">
+        <div class="item-wrap">
             <div class="logo-wrap">
                 <img src="{{asset('images/header/logo.svg')}}" alt="logo">
             </div>

@@ -42,37 +42,37 @@ header {
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 9;
 }
-header .wrap {
+header .item-wrap {
   display: flex;
   justify-content: space-between;
   align-items: end;
 }
-header .wrap .menu-wrap {
+header .item-wrap .menu-wrap {
   display: flex;
   gap: 70px;
 }
-header .wrap .menu-wrap .menu {
+header .item-wrap .menu-wrap .menu {
   display: flex;
   gap: 20px;
   align-items: end;
 }
-header .wrap .menu-wrap .menu a {
+header .item-wrap .menu-wrap .menu a {
   font-size: 22px;
   border-bottom: 3px solid transparent;
   transition: border-color 0.3s ease, font-weight 0.2s ease;
 }
-header .wrap .menu-wrap .menu a:hover {
+header .item-wrap .menu-wrap .menu a:hover {
   font-weight: 700;
   transition: 0.2s ease;
   border-bottom-color: #C8652F;
 }
-header .wrap .menu-wrap .language {
+header .item-wrap .menu-wrap .language {
   display: flex;
   align-items: center;
 }
-header .wrap .menu-wrap .language a {
+header .item-wrap .menu-wrap .language a {
   font-size: 20px;
   border: 6px solid #000;
   padding: 2px 1px;
@@ -108,43 +108,229 @@ section.hero .hero-img img {
   height: 100%;
   object-fit: cover;
 }
-section.hero .title {
+section.hero .hero-content {
   max-width: 630px;
   position: absolute;
   left: 160px;
   top: 300px;
-  z-index: 9git rm -r --cached FolderName;
+  z-index: 9;
 }
-section.hero .title h1 {
+section.hero .hero-content h1 {
   font-size: 120px;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 40px;
 }
-section.hero .title p {
+section.hero .hero-content p {
   font-size: 25px;
   margin-bottom: 55px;
 }
-section.hero .title .btn {
+section.hero .hero-content .btn {
   display: flex;
   justify-content: start;
 }
-section.hero .title .btn a {
+section.hero .hero-content .btn a {
   pointer-events: all;
   color: #fff;
   background-color: #C8652F;
-  padding: 15px 35px;
+  padding: 15px 0;
   font-size: 25px;
   font-weight: 400;
   transition: 0.2s ease;
+  width: 205px;
+  display: flex;
+  justify-content: center;
 }
-section.hero .title .btn a:hover {
+section.hero .hero-content .btn a:hover {
   transition: 0.2s ease;
   background-color: #664837;
 }
 
-section.menu-boxes .item {
+section.menu-boxes .box {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 35px;
+  margin-bottom: 100px;
+  margin-top: 60px;
+}
+section.menu-boxes .box .item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+section.menu-boxes .box .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #F0F0F0;
+  width: 235px;
+  height: 235px;
+}
+section.menu-boxes .box .icon img {
+  display: block;
+}
+section.menu-boxes .box h6 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 100px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.line {
+  border: 1px solid #9A9A9A;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.index-image {
+  width: 670px;
+  height: 530px;
+}
+.index-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 365px;
+}
+
+section.accommodation .box, section.events .box {
+  display: grid;
+  grid-template-columns: 67fr 76fr;
+  margin-bottom: 80px;
+}
+section.accommodation .box .item:nth-of-type(2), section.events .box .item:nth-of-type(2) {
+  padding-right: 100px;
+}
+section.accommodation .box p, section.events .box p {
+  font-size: 25px;
+  margin-bottom: 0;
+}
+section.accommodation .box .btn, section.events .box .btn {
+  display: flex;
+  justify-content: start;
+}
+section.accommodation .box .btn a, section.events .box .btn a {
+  pointer-events: all;
+  color: #fff;
+  background-color: #C8652F;
+  padding: 15px 0;
+  font-size: 25px;
+  font-weight: 400;
+  transition: 0.2s ease;
+  width: 205px;
+  display: flex;
+  justify-content: center;
+}
+section.accommodation .box .btn a:hover, section.events .box .btn a:hover {
+  transition: 0.2s ease;
+  background-color: #664837;
+}
+
+section.kitchen .box, section.alpacas .box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 155px;
+  margin-bottom: 80px;
+}
+section.kitchen .box p, section.alpacas .box p {
+  font-size: 25px;
+  margin-bottom: 0;
+}
+section.kitchen .box .text-wrap, section.alpacas .box .text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+section.kitchen .box .text-wrap h5, section.alpacas .box .text-wrap h5 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+section.kitchen .box .btn, section.alpacas .box .btn {
+  display: flex;
+  justify-content: start;
+}
+section.kitchen .box .btn a, section.alpacas .box .btn a {
+  pointer-events: all;
+  color: #fff;
+  background-color: #C8652F;
+  padding: 15px 0;
+  font-size: 25px;
+  font-weight: 400;
+  transition: 0.2s ease;
+  width: 205px;
+  display: flex;
+  justify-content: center;
+}
+section.kitchen .box .btn a:hover, section.alpacas .box .btn a:hover {
+  transition: 0.2s ease;
+  background-color: #664837;
+}
+
+section.apartments {
+  padding-bottom: 205px;
+}
+section.apartments .box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+section.apartments .box .hotel {
+  width: 506px;
+  height: 506px;
+  margin-bottom: 30px;
+}
+section.apartments .box .hotel img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+section.apartments .box h3 {
+  font-size: 70px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+section.apartments .box ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+section.apartments .box ul li {
+  font-size: 25px;
+  line-height: 40px;
+}
+section.apartments .box .btn {
+  display: flex;
+  justify-content: start;
+}
+section.apartments .box .btn a {
+  pointer-events: all;
+  color: #fff;
+  background-color: #C8652F;
+  padding: 15px 0;
+  font-size: 25px;
+  font-weight: 400;
+  transition: 0.2s ease;
+  width: 205px;
+  display: flex;
+  justify-content: center;
+}
+section.apartments .box .btn a:hover {
+  transition: 0.2s ease;
+  background-color: #664837;
 }
 
 /*# sourceMappingURL=main.css.map */
