@@ -67,9 +67,31 @@ class MainController extends Controller
             ],
         ];
 
+        $sliderImages = [
+            [
+                'img' => 'images/index/food.jpg',
+            ],
+            [
+                'img' => 'images/index/zayda.jpg',
+            ],
+            [
+                'img' => 'images/index/outside.jpg',
+            ],
+            [
+                'img' => 'images/index/food.jpg',
+            ],
+            [
+                'img' => 'images/index/zayda.jpg',
+            ],
+            [
+                'img' => 'images/index/outside.jpg',
+            ],
+        ];
+
         return view('index', compact(
             'boxItems',
             'apartmentMenu',
+            'sliderImages',
         ));
     }
 }

@@ -126,7 +126,7 @@
                         <div class="wrap">
                             <p>
                                 V areály nášho penziónu chováme aj alpaky. Hana a Andy sú súčasťou našej rodiny. Deti
-                                naše alpaky milujú a tak ako ubytovaní hostia, tak aj neubytovaní  hostia majú možnosť
+                                naše alpaky milujú a tak ako ubytovaní hostia, tak aj neubytovaní hostia majú možnosť
                                 rezervácie programu s našimi alpakami. Či je to kŕmenie, starostlivosť o alpaky alebo
                                 vychádzka do prírody, tak sme pripravení. Hana a Andy sa tešia na Vás.
                             </p>
@@ -166,6 +166,25 @@
                     </div>
                 @endforeach
             </div>
+        </div>
+    </section>
+    <section class="gallery">
+        <div class="container">
+            <div class="image-slider">
+                @foreach($sliderImages as $item)
+                    <div class="img-wrap">
+                        <img src="{{asset($item['img'])}}" alt="img">
+                    </div>
+                @endforeach
+            </div>
+            <div class="slider-arrow arrow-left">
+                <img src="{{asset('images/index/arrow-left.svg')}}" alt="arrow">
+            </div>
+            <div class="slider-arrow arrow-right">
+                <img src="{{asset('images/index/arrow-right.svg')}}" alt="arrow">
+            </div>
+            <div class="shadow left"></div>
+            <div class="shadow right"></div>
         </div>
     </section>
 @endsection
