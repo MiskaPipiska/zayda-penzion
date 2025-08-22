@@ -49,19 +49,59 @@ header .item-wrap {
   justify-content: space-between;
   align-items: end;
 }
+@media only screen and (max-width: 1499px) {
+  header .item-wrap .logo-wrap img {
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 1299px) {
+  header .item-wrap .logo-wrap img {
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  header .item-wrap .logo-wrap img {
+    width: 250px;
+  }
+}
 header .item-wrap .menu-wrap {
   display: flex;
   gap: 70px;
+}
+@media only screen and (max-width: 1499px) {
+  header .item-wrap .menu-wrap {
+    gap: 40px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  header .item-wrap .menu-wrap {
+    gap: 20px;
+  }
 }
 header .item-wrap .menu-wrap .menu {
   display: flex;
   gap: 20px;
   align-items: end;
 }
+@media only screen and (max-width: 1499px) {
+  header .item-wrap .menu-wrap .menu {
+    gap: 15px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  header .item-wrap .menu-wrap .menu {
+    gap: 10px;
+  }
+}
 header .item-wrap .menu-wrap .menu a {
   font-size: 22px;
   border-bottom: 3px solid transparent;
   transition: border-color 0.3s ease, font-weight 0.2s ease;
+}
+@media only screen and (max-width: 1199px) {
+  header .item-wrap .menu-wrap .menu a {
+    font-size: 20px;
+  }
 }
 header .item-wrap .menu-wrap .menu a:hover {
   font-weight: 700;
@@ -105,7 +145,7 @@ section.hero .hero-img .bg.top {
 }
 section.hero .hero-img img {
   width: 100%;
-  height: 100%;
+  height: 1085px;
   object-fit: cover;
 }
 section.hero .hero-content {
@@ -120,6 +160,16 @@ section.hero .hero-content h1 {
   font-weight: 700;
   line-height: 1;
   margin-bottom: 40px;
+}
+@media only screen and (max-width: 1699px) {
+  section.hero .hero-content h1 {
+    font-size: 100px;
+  }
+}
+@media only screen and (max-width: 1299px) {
+  section.hero .hero-content h1 {
+    font-size: 80px;
+  }
 }
 section.hero .hero-content p {
   font-size: 25px;
@@ -153,6 +203,11 @@ section.menu-boxes .box {
   margin-bottom: 100px;
   margin-top: 60px;
 }
+@media only screen and (max-width: 1699px) {
+  section.menu-boxes .box {
+    gap: 15px;
+  }
+}
 section.menu-boxes .box .item {
   display: flex;
   flex-direction: column;
@@ -166,6 +221,12 @@ section.menu-boxes .box .icon {
   background-color: #F0F0F0;
   width: 235px;
   height: 235px;
+}
+@media only screen and (max-width: 1599px) {
+  section.menu-boxes .box .icon {
+    width: 200px;
+    height: 200px;
+  }
 }
 section.menu-boxes .box .icon img {
   display: block;
@@ -181,6 +242,11 @@ h2 {
   font-size: 100px;
   font-weight: 700;
   margin-bottom: 40px;
+}
+@media only screen and (max-width: 1499px) {
+  h2 {
+    font-size: 80px;
+  }
 }
 
 .line {
@@ -209,6 +275,7 @@ section.accommodation .box, section.events .box {
   display: grid;
   grid-template-columns: 67fr 76fr;
   margin-bottom: 80px;
+  gap: 55px;
 }
 section.accommodation .box .item:nth-of-type(2), section.events .box .item:nth-of-type(2) {
   padding-right: 100px;
@@ -243,6 +310,11 @@ section.kitchen .box, section.alpacas .box {
   grid-template-columns: repeat(2, 1fr);
   gap: 155px;
   margin-bottom: 80px;
+}
+@media only screen and (max-width: 1499px) {
+  section.kitchen .box, section.alpacas .box {
+    gap: 100px;
+  }
 }
 section.kitchen .box p, section.alpacas .box p {
   font-size: 25px;
@@ -287,10 +359,25 @@ section.apartments .box {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
+@media only screen and (max-width: 1499px) {
+  section.apartments .box {
+    gap: 30px;
+  }
+}
 section.apartments .box .hotel {
-  width: 506px;
+  width: auto;
   height: 506px;
   margin-bottom: 30px;
+}
+@media only screen and (max-width: 1499px) {
+  section.apartments .box .hotel {
+    height: 450px;
+  }
+}
+@media only screen and (max-width: 1299px) {
+  section.apartments .box .hotel {
+    height: 350px;
+  }
 }
 section.apartments .box .hotel img {
   width: 100%;
@@ -302,6 +389,16 @@ section.apartments .box h3 {
   font-size: 70px;
   margin-bottom: 20px;
   font-weight: 700;
+}
+@media only screen and (max-width: 1499px) {
+  section.apartments .box h3 {
+    font-size: 50px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  section.apartments .box h3 {
+    font-size: 40px;
+  }
 }
 section.apartments .box ul {
   list-style-type: none;
@@ -347,6 +444,7 @@ section.gallery .image-slider .img-wrap {
 section.gallery .image-slider .img-wrap img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 section.gallery .slick-track {
   display: flex;
@@ -401,11 +499,27 @@ section.gallery .slider-arrow img {
   cursor: pointer;
 }
 
+section.map {
+  position: relative;
+  height: 520px;
+}
+section.map iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+section.map .container, section.map .row {
+  height: 100%;
+}
+
 footer {
   background-color: #3F80A9;
   padding-top: 70px;
   padding-bottom: 70px;
   position: relative;
+  margin-bottom: 150px;
 }
 footer .bg-img {
   position: absolute;
@@ -413,7 +527,8 @@ footer .bg-img {
   top: auto;
   right: 0;
   left: auto;
-  z-index: 9;
+  opacity: 0.2;
+  mix-blend-mode: multiply;
 }
 footer .title {
   display: flex;
@@ -435,13 +550,23 @@ footer .box {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 330px;
+  margin-bottom: 70px;
+}
+footer .box .item:nth-of-type(1) {
+  z-index: 9;
+}
+footer .box .item:nth-of-type(2) {
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 footer .input-wrap {
   margin-bottom: 35px;
   width: 100%;
 }
 footer .input-wrap:nth-of-type(3) {
-  margin-bottom: 70px;
+  margin-bottom: 0;
 }
 footer label {
   color: #fff;
@@ -474,9 +599,14 @@ footer textarea {
 }
 footer p {
   font-size: 25px;
-  margin-bottom: 0;
+  margin-bottom: 30px;
   text-align: end;
   color: #fff;
+}
+footer p.mail {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 95px;
 }
 footer p span {
   font-weight: 700;
@@ -500,6 +630,11 @@ footer .btn a {
 footer .btn a:hover {
   transition: 0.2s ease;
   background-color: #664837;
+}
+footer .socials {
+  display: flex;
+  justify-content: end;
+  gap: 25px;
 }
 
 /*# sourceMappingURL=main.css.map */
