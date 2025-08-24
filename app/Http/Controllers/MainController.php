@@ -13,7 +13,7 @@ class MainController extends Controller
         $boxItems = [
             [
                 'img' => 'images/index/logo-apartment.svg',
-                'text' => 'APARTMÁNOVÉ UBYTOVANIE',
+                'text' => 'APARTMÁNOVÉ<br>UBYTOVANIE',
             ],
             [
                 'img' => 'images/index/logo-brunch.svg',

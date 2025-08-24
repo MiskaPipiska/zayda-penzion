@@ -1,4 +1,142 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+.hamburger {
+  width: 30px;
+  height: 24.5px;
+  position: relative;
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  display: block;
+  z-index: 99999;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #000;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.hamburger-wrapper {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hamburger span:nth-child(2) {
+  top: 10px;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hamburger span:nth-child(3) {
+  top: 20px;
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: -1.5px;
+  left: 4px;
+}
+
+.hamburger.open span:nth-child(2) {
+  width: 0;
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 19.5px;
+  left: 4px;
+}
+
+.mobile-menu {
+  margin-top: 0;
+  background: #fff;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  opacity: 0;
+  transition: 0.3s ease;
+  pointer-events: none;
+  z-index: 110;
+  flex-direction: column;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+}
+.mobile-menu a {
+  color: #000;
+}
+.mobile-menu.active {
+  transition: 0.3s ease;
+  opacity: 1;
+  pointer-events: all;
+  padding-top: 150px;
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 50px;
+}
+@media only screen and (max-width: 991px) {
+  .mobile-menu.active {
+    line-height: 20px;
+    text-align: center;
+  }
+}
+.mobile-menu .nav {
+  flex-direction: column;
+  display: flex;
+}
+@media only screen and (max-width: 991px) {
+  .mobile-menu .nav {
+    padding: 0;
+    margin-top: 60px;
+  }
+}
+.mobile-menu .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+.mobile-menu .menu a {
+  font-size: 25px;
+  font-weight: 700;
+  color: #7E7F8D;
+  padding: 10px;
+}
+@media only screen and (max-width: 575px) {
+  .mobile-menu .menu a {
+    font-size: 20px;
+  }
+}
+.mobile-menu .menu a:hover {
+  color: #fff;
+  background-color: #E3001A;
+  transition: 0.2s ease;
+}
+
 body {
   font-family: "Lexend Deca", sans-serif;
   font-weight: 400;
@@ -36,7 +174,6 @@ p {
 
 header {
   padding-top: 85px;
-  padding-bottom: 150px;
   position: absolute;
   top: 0;
   left: 0;
@@ -48,6 +185,11 @@ header .item-wrap {
   display: flex;
   justify-content: space-between;
   align-items: end;
+}
+@media only screen and (max-width: 991px) {
+  header .item-wrap {
+    align-items: center;
+  }
 }
 @media only screen and (max-width: 1499px) {
   header .item-wrap .logo-wrap img {
@@ -62,6 +204,11 @@ header .item-wrap {
 @media only screen and (max-width: 1199px) {
   header .item-wrap .logo-wrap img {
     width: 250px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  header .item-wrap .logo-wrap img {
+    width: 200px;
   }
 }
 header .item-wrap .menu-wrap {
@@ -93,6 +240,11 @@ header .item-wrap .menu-wrap .menu {
     gap: 10px;
   }
 }
+@media only screen and (max-width: 991px) {
+  header .item-wrap .menu-wrap .menu {
+    display: none;
+  }
+}
 header .item-wrap .menu-wrap .menu a {
   font-size: 22px;
   border-bottom: 3px solid transparent;
@@ -112,30 +264,76 @@ header .item-wrap .menu-wrap .language {
   display: flex;
   align-items: center;
 }
+@media only screen and (max-width: 991px) {
+  header .item-wrap .menu-wrap .language {
+    display: none;
+  }
+}
 header .item-wrap .menu-wrap .language a {
   font-size: 20px;
   border: 6px solid #000;
   padding: 2px 1px;
 }
 
-section.hero .hero-img {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.nav-toggler {
+  border-radius: 100%;
+  align-items: center;
+  display: none;
+  justify-content: flex-end;
+  margin-left: 50px;
 }
-section.hero .hero-img .bg {
+@media only screen and (max-width: 991px) {
+  .nav-toggler {
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+  }
+}
+
+section.hero {
+  background-image: url("../images/index/penzion.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 1085px;
+  width: 100%;
+  position: relative;
+}
+@media only screen and (max-width: 1699px) {
+  section.hero {
+    height: 40vh;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.hero {
+    height: 30vh;
+    min-height: 850px;
+  }
+}
+section.hero .bg {
   position: absolute;
   z-index: 1;
   pointer-events: none;
 }
-section.hero .hero-img .bg.left {
+section.hero .bg.left {
   background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 1%, rgba(255, 255, 255, 0.8) 20%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 100%);
   top: 0;
   left: 0;
   height: 100%;
   width: 90%;
 }
-section.hero .hero-img .bg.top {
+@media only screen and (max-width: 1299px) {
+  section.hero .bg.left {
+    width: 110%;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.hero .bg.left {
+    width: 130%;
+  }
+}
+section.hero .bg.top {
   background: linear-gradient(180deg, #FFFAF3 0%, rgba(255, 250, 243, 0.8) 20%, rgba(255, 250, 243, 0) 100%);
   top: 0;
   left: 0;
@@ -143,17 +341,22 @@ section.hero .hero-img .bg.top {
   width: 100%;
   height: 450px;
 }
-section.hero .hero-img img {
+section.hero img {
   width: 100%;
   height: 1085px;
   object-fit: cover;
 }
 section.hero .hero-content {
+  position: relative;
+  z-index: 8;
+  pointer-events: none;
+  top: 290px;
   max-width: 630px;
-  position: absolute;
-  left: 160px;
-  top: 300px;
-  z-index: 9;
+}
+@media only screen and (max-width: 991px) {
+  section.hero .hero-content {
+    top: 200px;
+  }
 }
 section.hero .hero-content h1 {
   font-size: 120px;
@@ -171,9 +374,25 @@ section.hero .hero-content h1 {
     font-size: 80px;
   }
 }
+@media only screen and (max-width: 991px) {
+  section.hero .hero-content h1 {
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  section.hero .hero-content h1 {
+    font-size: 50px;
+  }
+}
 section.hero .hero-content p {
   font-size: 25px;
   margin-bottom: 55px;
+}
+@media only screen and (max-width: 991px) {
+  section.hero .hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
 }
 section.hero .hero-content .btn {
   display: flex;
@@ -195,6 +414,13 @@ section.hero .hero-content .btn a:hover {
   transition: 0.2s ease;
   background-color: #664837;
 }
+@media only screen and (max-width: 991px) {
+  section.hero .hero-content .btn a {
+    font-size: 20px;
+    width: 150px;
+    padding: 10px;
+  }
+}
 
 section.menu-boxes .box {
   display: grid;
@@ -202,10 +428,26 @@ section.menu-boxes .box {
   gap: 35px;
   margin-bottom: 100px;
   margin-top: 60px;
+  justify-content: center;
 }
-@media only screen and (max-width: 1699px) {
+@media only screen and (max-width: 1499px) {
   section.menu-boxes .box {
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 1199px) {
+  section.menu-boxes .box {
+    margin-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  section.menu-boxes .box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 440px) {
+  section.menu-boxes .box {
+    grid-template-columns: minmax(1px, 1fr);
   }
 }
 section.menu-boxes .box .item {
@@ -219,17 +461,13 @@ section.menu-boxes .box .icon {
   justify-content: center;
   align-items: center;
   background-color: #F0F0F0;
-  width: 235px;
-  height: 235px;
-}
-@media only screen and (max-width: 1599px) {
-  section.menu-boxes .box .icon {
-    width: 200px;
-    height: 200px;
-  }
+  width: 100%;
+  height: 200px;
 }
 section.menu-boxes .box .icon img {
   display: block;
+  max-height: 100px;
+  width: auto;
 }
 section.menu-boxes .box h6 {
   font-size: 22px;
@@ -237,15 +475,9 @@ section.menu-boxes .box h6 {
   margin-bottom: 0;
   text-align: center;
 }
-
-h2 {
-  font-size: 100px;
-  font-weight: 700;
-  margin-bottom: 40px;
-}
-@media only screen and (max-width: 1499px) {
-  h2 {
-    font-size: 80px;
+@media only screen and (max-width: 991px) {
+  section.menu-boxes .box h6 {
+    font-size: 18px;
   }
 }
 
@@ -254,41 +486,109 @@ h2 {
   width: 100%;
   margin-bottom: 80px;
 }
+@media only screen and (max-width: 1199px) {
+  .line {
+    margin-bottom: 40px;
+  }
+}
 
 .index-image {
   width: 670px;
   height: 530px;
+}
+@media only screen and (max-width: 1199px) {
+  .index-image {
+    height: 100%;
+    width: 100%;
+  }
 }
 .index-image img {
   width: 100%;
   height: 100%;
 }
 
-.wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 365px;
-}
-
 section.accommodation .box, section.events .box {
   display: grid;
-  grid-template-columns: 67fr 76fr;
-  margin-bottom: 80px;
+  grid-template-columns: 67fr 93fr;
   gap: 55px;
+  margin-bottom: 80px;
 }
-section.accommodation .box .item:nth-of-type(2), section.events .box .item:nth-of-type(2) {
+@media only screen and (max-width: 1199px) {
+  section.accommodation .box, section.events .box {
+    grid-template-columns: minmax(1px, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  section.accommodation .box .index-image, section.events .box .index-image {
+    order: 2;
+    display: flex;
+    justify-content: center;
+  }
+}
+section.accommodation .box .heading, section.events .box .heading {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   padding-right: 100px;
 }
-section.accommodation .box p, section.events .box p {
+@media only screen and (max-width: 1199px) {
+  section.accommodation .box .heading, section.events .box .heading {
+    order: 1;
+    padding-right: 0;
+  }
+}
+section.accommodation .box .heading h2, section.events .box .heading h2 {
+  font-size: 100px;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-bottom: 40px;
+}
+@media only screen and (max-width: 1499px) {
+  section.accommodation .box .heading h2, section.events .box .heading h2 {
+    font-size: 80px;
+  }
+}
+@media only screen and (max-width: 1299px) {
+  section.accommodation .box .heading h2, section.events .box .heading h2 {
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.accommodation .box .heading h2, section.events .box .heading h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+section.accommodation .box .heading p, section.events .box .heading p {
   font-size: 25px;
   margin-bottom: 0;
 }
-section.accommodation .box .btn, section.events .box .btn {
+@media only screen and (max-width: 991px) {
+  section.accommodation .box .heading p, section.events .box .heading p {
+    margin-bottom: 25px;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+section.accommodation .box .heading .btn, section.events .box .heading .btn {
   display: flex;
   justify-content: start;
 }
-section.accommodation .box .btn a, section.events .box .btn a {
+@media only screen and (max-width: 1399px) {
+  section.accommodation .box .heading .btn, section.events .box .heading .btn {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.accommodation .box .heading .btn, section.events .box .heading .btn {
+    justify-content: center;
+    margin-top: 0;
+  }
+}
+section.accommodation .box .heading .btn a, section.events .box .heading .btn a {
   pointer-events: all;
   color: #fff;
   background-color: #C8652F;
@@ -300,14 +600,21 @@ section.accommodation .box .btn a, section.events .box .btn a {
   display: flex;
   justify-content: center;
 }
-section.accommodation .box .btn a:hover, section.events .box .btn a:hover {
+section.accommodation .box .heading .btn a:hover, section.events .box .heading .btn a:hover {
   transition: 0.2s ease;
   background-color: #664837;
+}
+@media only screen and (max-width: 991px) {
+  section.accommodation .box .heading .btn a, section.events .box .heading .btn a {
+    font-size: 20px;
+    width: 150px;
+    padding: 10px;
+  }
 }
 
 section.kitchen .box, section.alpacas .box {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 76fr 67fr;
   gap: 155px;
   margin-bottom: 80px;
 }
@@ -316,9 +623,55 @@ section.kitchen .box, section.alpacas .box {
     gap: 100px;
   }
 }
+@media only screen and (max-width: 1199px) {
+  section.kitchen .box, section.alpacas .box {
+    grid-template-columns: minmax(1px, 1fr);
+    margin-bottom: 50px;
+    gap: 0;
+  }
+}
+section.kitchen .box .heading, section.alpacas .box .heading {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@media only screen and (max-width: 1199px) {
+  section.kitchen .box .heading, section.alpacas .box .heading {
+    margin-bottom: 30px;
+  }
+}
+section.kitchen .box h2, section.alpacas .box h2 {
+  font-size: 100px;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-bottom: 40px;
+}
+@media only screen and (max-width: 1499px) {
+  section.kitchen .box h2, section.alpacas .box h2 {
+    font-size: 80px;
+  }
+}
+@media only screen and (max-width: 1299px) {
+  section.kitchen .box h2, section.alpacas .box h2 {
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.kitchen .box h2, section.alpacas .box h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
 section.kitchen .box p, section.alpacas .box p {
   font-size: 25px;
   margin-bottom: 0;
+}
+@media only screen and (max-width: 991px) {
+  section.kitchen .box p, section.alpacas .box p {
+    text-align: center;
+    font-size: 18px;
+  }
 }
 section.kitchen .box .text-wrap, section.alpacas .box .text-wrap {
   display: flex;
@@ -330,9 +683,26 @@ section.kitchen .box .text-wrap h5, section.alpacas .box .text-wrap h5 {
   font-weight: 700;
   margin-bottom: 0;
 }
+@media only screen and (max-width: 991px) {
+  section.kitchen .box .text-wrap h5, section.alpacas .box .text-wrap h5 {
+    text-align: center;
+    font-size: 22px;
+  }
+}
 section.kitchen .box .btn, section.alpacas .box .btn {
   display: flex;
   justify-content: start;
+}
+@media only screen and (max-width: 1399px) {
+  section.kitchen .box .btn, section.alpacas .box .btn {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.kitchen .box .btn, section.alpacas .box .btn {
+    justify-content: center;
+    margin-top: 20px;
+  }
 }
 section.kitchen .box .btn a, section.alpacas .box .btn a {
   pointer-events: all;
@@ -350,9 +720,21 @@ section.kitchen .box .btn a:hover, section.alpacas .box .btn a:hover {
   transition: 0.2s ease;
   background-color: #664837;
 }
+@media only screen and (max-width: 991px) {
+  section.kitchen .box .btn a, section.alpacas .box .btn a {
+    font-size: 20px;
+    width: 150px;
+    padding: 10px;
+  }
+}
 
 section.apartments {
   padding-bottom: 205px;
+}
+@media only screen and (max-width: 991px) {
+  section.apartments {
+    padding-bottom: 50px;
+  }
 }
 section.apartments .box {
   display: grid;
@@ -364,19 +746,25 @@ section.apartments .box {
     gap: 30px;
   }
 }
+@media only screen and (max-width: 1199px) {
+  section.apartments .box {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  section.apartments .box {
+    grid-template-columns: minmax(1px, 1fr);
+  }
+}
 section.apartments .box .hotel {
   width: auto;
   height: 506px;
   margin-bottom: 30px;
 }
-@media only screen and (max-width: 1499px) {
+@media only screen and (max-width: 991px) {
   section.apartments .box .hotel {
-    height: 450px;
-  }
-}
-@media only screen and (max-width: 1299px) {
-  section.apartments .box .hotel {
-    height: 350px;
+    margin-bottom: 20px;
   }
 }
 section.apartments .box .hotel img {
@@ -398,6 +786,13 @@ section.apartments .box h3 {
 @media only screen and (max-width: 1199px) {
   section.apartments .box h3 {
     font-size: 40px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.apartments .box h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
   }
 }
 section.apartments .box ul {
@@ -405,13 +800,35 @@ section.apartments .box ul {
   padding-left: 0;
   margin-bottom: 30px;
 }
+@media only screen and (max-width: 991px) {
+  section.apartments .box ul {
+    margin-bottom: 15px;
+  }
+}
 section.apartments .box ul li {
   font-size: 25px;
   line-height: 40px;
 }
+@media only screen and (max-width: 1199px) {
+  section.apartments .box ul li {
+    text-align: center;
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.apartments .box ul li {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
 section.apartments .box .btn {
   display: flex;
   justify-content: start;
+}
+@media only screen and (max-width: 1199px) {
+  section.apartments .box .btn {
+    justify-content: center;
+  }
 }
 section.apartments .box .btn a {
   pointer-events: all;
@@ -428,6 +845,13 @@ section.apartments .box .btn a {
 section.apartments .box .btn a:hover {
   transition: 0.2s ease;
   background-color: #664837;
+}
+@media only screen and (max-width: 991px) {
+  section.apartments .box .btn a {
+    font-size: 20px;
+    width: 150px;
+    padding: 10px;
+  }
 }
 
 section.gallery .container {
@@ -464,6 +888,11 @@ section.gallery .slick-prev, section.gallery .slick-next {
 }
 section.gallery .slick-dotted.slick-slider {
   margin-bottom: 130px;
+}
+@media only screen and (max-width: 991px) {
+  section.gallery .slick-dotted.slick-slider {
+    margin-bottom: 50px;
+  }
 }
 section.gallery .shadow {
   position: absolute;
@@ -503,6 +932,11 @@ section.map {
   position: relative;
   height: 520px;
 }
+@media only screen and (max-width: 991px) {
+  section.map {
+    height: 350px;
+  }
+}
 section.map iframe {
   position: absolute;
   left: 0;
@@ -521,6 +955,13 @@ footer {
   position: relative;
   margin-bottom: 150px;
 }
+@media only screen and (max-width: 991px) {
+  footer {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+  }
+}
 footer .bg-img {
   position: absolute;
   bottom: 0;
@@ -530,27 +971,69 @@ footer .bg-img {
   opacity: 0.2;
   mix-blend-mode: multiply;
 }
+@media only screen and (max-width: 991px) {
+  footer .bg-img {
+    display: none;
+  }
+}
 footer .title {
   display: flex;
   justify-content: space-between;
   align-items: end;
   padding-bottom: 55px;
 }
+@media only screen and (max-width: 991px) {
+  footer .title {
+    padding-bottom: 25px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 991px) {
+  footer .title .logo-wrap {
+    order: 1;
+    margin-bottom: 15px;
+  }
+}
+@media only screen and (max-width: 991px) and (max-width: 991px) {
+  footer .title .logo-wrap img {
+    width: 250px;
+  }
+}
 footer .title h3 {
   font-size: 50px;
   color: #fff;
   margin-bottom: 0;
+}
+@media only screen and (max-width: 991px) {
+  footer .title h3 {
+    font-size: 25px;
+    order: 2;
+    text-align: center;
+  }
 }
 footer .title h3 span {
   font-size: 70px;
   font-weight: 700;
   display: block;
 }
+@media only screen and (max-width: 991px) {
+  footer .title h3 span {
+    font-size: 30px;
+  }
+}
 footer .box {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 330px;
   margin-bottom: 70px;
+}
+@media only screen and (max-width: 991px) {
+  footer .box {
+    gap: 0;
+    grid-template-columns: minmax(1px, 1fr);
+    margin-bottom: 30px;
+  }
 }
 footer .box .item:nth-of-type(1) {
   z-index: 9;
@@ -561,9 +1044,24 @@ footer .box .item:nth-of-type(2) {
   flex-direction: column;
   justify-content: end;
 }
-footer .input-wrap {
-  margin-bottom: 35px;
+@media only screen and (max-width: 991px) {
+  footer .box .item:nth-of-type(2) {
+    margin-top: 25px;
+  }
+}
+footer form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
+}
+footer .input-wrap {
+  width: 100%;
+}
+@media only screen and (max-width: 991px) {
+  footer .input-wrap {
+    margin-bottom: 0;
+  }
 }
 footer .input-wrap:nth-of-type(3) {
   margin-bottom: 0;
@@ -572,12 +1070,15 @@ footer label {
   color: #fff;
   font-size: 20px;
   font-weight: 400;
+  display: block;
 }
 footer input, footer textarea {
   border: none;
   height: 100%;
   padding-top: 0;
   padding-bottom: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 footer input:focus, footer textarea:focus {
   outline: none;
@@ -593,9 +1094,20 @@ footer textarea {
   line-height: 150%;
   height: 60px;
 }
+@media only screen and (max-width: 991px) {
+  footer input:not([type=submit]),
+  footer textarea {
+    height: 40px;
+  }
+}
 footer textarea {
   height: 275px;
   resize: none;
+}
+@media only screen and (max-width: 991px) {
+  footer textarea {
+    height: 170px;
+  }
 }
 footer p {
   font-size: 25px;
@@ -603,10 +1115,32 @@ footer p {
   text-align: end;
   color: #fff;
 }
+@media only screen and (max-width: 991px) {
+  footer p {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
 footer p.mail {
   font-size: 50px;
   font-weight: 700;
   margin-bottom: 95px;
+}
+@media only screen and (max-width: 991px) {
+  footer p.mail {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  footer p.mail {
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 440px) {
+  footer p.mail {
+    font-size: 20px;
+  }
 }
 footer p span {
   font-weight: 700;
@@ -614,6 +1148,11 @@ footer p span {
 footer .btn {
   display: flex;
   justify-content: start;
+}
+@media only screen and (max-width: 991px) {
+  footer .btn {
+    justify-content: center;
+  }
 }
 footer .btn a {
   pointer-events: all;
@@ -631,10 +1170,22 @@ footer .btn a:hover {
   transition: 0.2s ease;
   background-color: #664837;
 }
+@media only screen and (max-width: 991px) {
+  footer .btn a {
+    font-size: 20px;
+    width: 150px;
+    padding: 10px;
+  }
+}
 footer .socials {
   display: flex;
   justify-content: end;
   gap: 25px;
+}
+@media only screen and (max-width: 991px) {
+  footer .socials {
+    justify-content: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

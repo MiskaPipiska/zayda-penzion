@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
+@import "components/mobile-menu";
+
 $assetUrl: "../images";
 
 $breakpoints: (
@@ -21,16 +23,6 @@ $breakpoints: (
     xl-7: 1799px
 );
 
-@mixin rs($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
-        @media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
-            @content;
-        }
-    } @else {
-        @warn "No such breakpoint '#{$breakpoint}' defined in $breakpoints map.";
-    }
-}
-
 @mixin mainBtn($fontSize: 25px, $pd: 15px 0) {
     pointer-events: all;
     color: #fff;
@@ -46,6 +38,32 @@ $breakpoints: (
     &:hover {
         transition: .2s ease;
         background-color: #664837;
+    }
+
+    @include rs(lg) {
+        font-size: 20px;
+        width: 150px;
+        padding: 10px;
+    }
+}
+
+@mixin h2 {
+    font-size: 100px;
+    font-weight: 700;
+    margin-bottom: 0;
+
+    @include rs(xl-4) {
+        font-size: 80px;
+    }
+
+    @include rs(xl-2) {
+        font-size: 60px;
+    }
+
+    @include rs(lg) {
+        font-size: 40px;
+        margin-bottom: 20px;
+        text-align: center;
     }
 }
 
@@ -87,7 +105,6 @@ p {
 
 header {
     padding-top: 85px;
-    padding-bottom: 150px;
     position: absolute;
     top: 0;
     left: 0;
@@ -100,19 +117,27 @@ header {
         justify-content: space-between;
         align-items: end;
 
+        @include rs(lg) {
+            align-items: center;
+        }
+
         .logo-wrap {
             img {
                 @include rs(xl-4) {
                     width: 400px;
                 }
 
-                 @include rs(xl-2) {
-                     width: 300px;
-                 }
+                @include rs(xl-2) {
+                    width: 300px;
+                }
 
-                 @include rs(xl) {
-                     width: 250px;
-                 }
+                @include rs(xl) {
+                    width: 250px;
+                }
+
+                @include rs(sm) {
+                    width: 200px;
+                }
             }
         }
 
@@ -120,9 +145,9 @@ header {
             display: flex;
             gap: 70px;
 
-             @include rs(xl-4) {
-                 gap: 40px;
-             }
+            @include rs(xl-4) {
+                gap: 40px;
+            }
 
             @include rs(xl) {
                 gap: 20px;
@@ -139,6 +164,10 @@ header {
 
                 @include rs(xl) {
                     gap: 10px;
+                }
+
+                @include rs(lg) {
+                    display: none;
                 }
 
                 a {
@@ -162,6 +191,10 @@ header {
                 display: flex;
                 align-items: center;
 
+                @include rs(lg) {
+                    display: none;
+                }
+
                 a {
                     font-size: 20px;
                     border: 6px solid #000;
@@ -172,56 +205,94 @@ header {
     }
 }
 
+.nav-toggler {
+    border-radius: 100%;
+    align-items: center;
+    display: none;
+    justify-content: flex-end;
+    margin-left: 50px;
+
+    @include rs(lg) {
+        margin-left: 20px;
+        padding: 0;
+        display: flex;
+    }
+}
+
 section.hero {
-    .hero-img {
-        position: relative;
-        width: 100%;
-        height: 100%;
+    background-image: url("../images/index/penzion.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    min-height: 1085px;
+    width: 100%;
+    position: relative;
 
-        .bg {
-            position: absolute;
-            z-index: 1;
-            pointer-events: none;
+    @include rs(xl-6) {
+        height: 40vh;
+    }
 
-            &.left {
-                background: linear-gradient(
-                        to right,
-                        #FFFFFF 0%,
-                        #FFFFFF 1%,
-                        rgba(255, 255, 255, 0.8) 20%,
-                        rgba(255, 255, 255, 0.5) 50%,
-                        rgba(255, 255, 255, 0.2) 70%,
-                        rgba(255, 255, 255, 0) 100%
-                );
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 90%;
+    @include rs(lg) {
+        height: 30vh;
+        min-height: 850px;
+    }
+
+    .bg {
+        position: absolute;
+        z-index: 1;
+        pointer-events: none;
+
+        &.left {
+            background: linear-gradient(
+                    to right,
+                    #FFFFFF 0%,
+                    #FFFFFF 1%,
+                    rgba(255, 255, 255, 0.8) 20%,
+                    rgba(255, 255, 255, 0.5) 50%,
+                    rgba(255, 255, 255, 0.2) 70%,
+                    rgba(255, 255, 255, 0) 100%
+            );
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 90%;
+
+            @include rs(xl-2) {
+                width: 110%;
             }
 
-            &.top {
-                background: linear-gradient(180deg, #FFFAF3 0%, rgba(255, 250, 243, 0.8) 20%, rgba(255, 250, 243, 0) 100%);
-                top: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                height: 450px;
+            @include rs(lg) {
+                width: 130%;
             }
         }
 
-        img {
+        &.top {
+            background: linear-gradient(180deg, #FFFAF3 0%, rgba(255, 250, 243, 0.8) 20%, rgba(255, 250, 243, 0) 100%);
+            top: 0;
+            left: 0;
+            right: 0;
             width: 100%;
-            height: 1085px;
-            object-fit: cover;
+            height: 450px;
         }
     }
 
+    img {
+        width: 100%;
+        height: 1085px;
+        object-fit: cover;
+    }
+
     .hero-content {
+        position: relative;
+        z-index: 8;
+        pointer-events: none;
+        top: 290px;
         max-width: 630px;
-        position: absolute;
-        left: 160px;
-        top: 300px;
-        z-index: 9;
+
+        @include rs(lg) {
+            top: 200px;
+        }
 
         h1 {
             font-size: 120px;
@@ -229,18 +300,31 @@ section.hero {
             line-height: 1;
             margin-bottom: 40px;
 
-             @include rs(xl-6) {
-                 font-size: 100px;
-             }
+            @include rs(xl-6) {
+                font-size: 100px;
+            }
 
             @include rs(xl-2) {
                 font-size: 80px;
+            }
+
+            @include rs(lg) {
+                font-size: 60px;
+            }
+
+            @include rs(md) {
+                font-size: 50px;
             }
         }
 
         p {
             font-size: 25px;
             margin-bottom: 55px;
+
+            @include rs(lg) {
+                font-size: 20px;
+                margin-bottom: 30px;
+            }
         }
 
         .btn {
@@ -261,9 +345,22 @@ section.menu-boxes {
         gap: 35px;
         margin-bottom: 100px;
         margin-top: 60px;
+        justify-content: center;
 
-        @include rs(xl-6) {
-            gap: 15px;
+        @include rs(xl-4) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include rs(xl) {
+            margin-bottom: 50px;
+        }
+
+        @include rs(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include rs(xsm) {
+            grid-template-columns: minmax(1px, 1fr);
         }
 
         .item {
@@ -278,16 +375,13 @@ section.menu-boxes {
             justify-content: center;
             align-items: center;
             background-color: #F0F0F0;
-            width: 235px;
-            height: 235px;
-
-            @include rs(xl-5) {
-                width: 200px;
-                height: 200px;
-            }
+            width: 100%;
+            height: 200px;
 
             img {
                 display: block;
+                max-height: 100px;
+                width: auto;
             }
         }
 
@@ -296,17 +390,11 @@ section.menu-boxes {
             font-weight: 700;
             margin-bottom: 0;
             text-align: center;
+
+            @include rs(lg) {
+                font-size: 18px;
+            }
         }
-    }
-}
-
-h2 {
-    font-size: 100px;
-    font-weight: 700;
-    margin-bottom: 40px;
-
-    @include rs(xl-4) {
-        font-size: 80px;
     }
 }
 
@@ -314,11 +402,20 @@ h2 {
     border: 1px solid #9A9A9A;
     width: 100%;
     margin-bottom: 80px;
+
+    @include rs(xl) {
+        margin-bottom: 40px;
+    }
 }
 
 .index-image {
     width: 670px;
     height: 530px;
+
+    @include rs(xl) {
+        height: 100%;
+        width: 100%;
+    }
 
     img {
         width: 100%;
@@ -326,35 +423,70 @@ h2 {
     }
 }
 
-.wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 365px;
-}
-
 section.accommodation, section.events {
     .box {
         display: grid;
-        grid-template-columns: 67fr 76fr;
-        margin-bottom: 80px;
+        grid-template-columns: 67fr 93fr;
         gap: 55px;
+        margin-bottom: 80px;
 
-        .item:nth-of-type(2) {
-            padding-right: 100px;
+        @include rs(xl) {
+            grid-template-columns: minmax(1px, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
         }
 
-        p {
-            font-size: 25px;
-            margin-bottom: 0;
+        .index-image {
+            @include rs(xl) {
+                order: 2;
+                display: flex;
+                justify-content: center;
+            }
         }
 
-        .btn {
+        .heading {
             display: flex;
-            justify-content: start;
+            justify-content: space-between;
+            flex-direction: column;
+            padding-right: 100px;
 
-            a {
-                @include mainBtn()
+            @include rs(xl) {
+                order: 1;
+                padding-right: 0;
+            }
+
+            h2 {
+                @include h2;
+                margin-bottom: 40px;
+            }
+
+            p {
+                font-size: 25px;
+                margin-bottom: 0;
+
+                @include rs(lg) {
+                    margin-bottom: 25px;
+                    font-size: 18px;
+                    text-align: center;
+                }
+            }
+
+            .btn {
+                display: flex;
+                justify-content: start;
+
+                @include rs(xl-3) {
+                    margin-top: 30px;
+                }
+
+                @include rs(lg) {
+                    justify-content: center;
+                    margin-top: 0;
+                }
+
+                a {
+                    @include mainBtn()
+                }
             }
         }
     }
@@ -363,7 +495,7 @@ section.accommodation, section.events {
 section.kitchen, section.alpacas {
     .box {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 76fr 67fr;
         gap: 155px;
         margin-bottom: 80px;
 
@@ -371,9 +503,35 @@ section.kitchen, section.alpacas {
             gap: 100px;
         }
 
+        @include rs(xl) {
+            grid-template-columns: minmax(1px, 1fr);
+            margin-bottom: 50px;
+            gap: 0;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            @include rs(xl) {
+                margin-bottom: 30px;
+            }
+        }
+
+        h2 {
+            @include h2;
+            margin-bottom: 40px;
+        }
+
         p {
             font-size: 25px;
             margin-bottom: 0;
+
+            @include rs(lg) {
+                text-align: center;
+                font-size: 18px;
+            }
         }
 
         .text-wrap {
@@ -385,12 +543,26 @@ section.kitchen, section.alpacas {
                 font-size: 25px;
                 font-weight: 700;
                 margin-bottom: 0;
+
+                @include rs(lg) {
+                    text-align: center;
+                    font-size: 22px;
+                }
             }
         }
 
         .btn {
             display: flex;
             justify-content: start;
+
+            @include rs(xl-3) {
+                margin-top: 30px;
+            }
+
+            @include rs(lg) {
+                justify-content: center;
+                margin-top: 20px;
+            }
 
             a {
                 @include mainBtn()
@@ -402,6 +574,10 @@ section.kitchen, section.alpacas {
 section.apartments {
     padding-bottom: 205px;
 
+    @include rs(lg) {
+        padding-bottom: 50px;
+    }
+
     .box {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -411,17 +587,22 @@ section.apartments {
             gap: 30px;
         }
 
+        @include rs(xl) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 30px;
+        }
+
+        @include rs(md) {
+            grid-template-columns: minmax(1px, 1fr);
+        }
+
         .hotel {
             width: auto;
             height: 506px;
             margin-bottom: 30px;
 
-            @include rs(xl-4) {
-                height: 450px;
-            }
-
-            @include rs(xl-2) {
-                height: 350px;
+            @include rs(lg) {
+                margin-bottom: 20px;
             }
 
             img {
@@ -443,6 +624,12 @@ section.apartments {
 
             @include rs(xl) {
                 font-size: 40px;
+                text-align: center;
+            }
+
+            @include rs(lg) {
+                font-size: 30px;
+                margin-bottom: 15px;
             }
         }
 
@@ -451,15 +638,33 @@ section.apartments {
             padding-left: 0;
             margin-bottom: 30px;
 
+            @include rs(lg) {
+                margin-bottom: 15px;
+            }
+
             li {
                 font-size: 25px;
                 line-height: 40px;
+
+                @include rs(xl) {
+                    text-align: center;
+                    font-size: 22px;
+                }
+
+                @include rs(lg) {
+                    font-size: 18px;
+                    line-height: 30px;
+                }
             }
         }
 
         .btn {
             display: flex;
             justify-content: start;
+
+            @include rs(xl) {
+                justify-content: center;
+            }
 
             a {
                 @include mainBtn()
@@ -511,6 +716,10 @@ section.gallery {
 
     .slick-dotted.slick-slider {
         margin-bottom: 130px;
+
+        @include rs(lg) {
+            margin-bottom: 50px;
+        }
     }
 
     .shadow {
@@ -570,6 +779,10 @@ section.map {
     position: relative;
     height: 520px;
 
+    @include rs(lg) {
+        height: 350px;
+    }
+
     iframe {
         position: absolute;
         left: 0;
@@ -590,6 +803,12 @@ footer {
     position: relative;
     margin-bottom: 150px;
 
+    @include rs(lg) {
+        padding-top: 40px;
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
     .bg-img {
         position: absolute;
         bottom: 0;
@@ -598,6 +817,10 @@ footer {
         left: auto;
         opacity: .2;
         mix-blend-mode: multiply;
+
+        @include rs(lg) {
+            display: none;
+        }
     }
 
     .title {
@@ -606,15 +829,44 @@ footer {
         align-items: end;
         padding-bottom: 55px;
 
+        @include rs(lg) {
+            padding-bottom: 25px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-wrap {
+            @include rs(lg) {
+                order: 1;
+                margin-bottom: 15px;
+
+                img {
+                    @include rs(lg) {
+                        width: 250px;
+                    }
+                }
+            }
+        }
+
         h3 {
             font-size: 50px;
             color: #fff;
             margin-bottom: 0;
 
+            @include rs(lg) {
+                font-size: 25px;
+                order: 2;
+                text-align: center;
+            }
+
             span {
                 font-size: 70px;
                 font-weight: 700;
                 display: block;
+
+                @include rs(lg) {
+                    font-size: 30px;
+                }
             }
         }
     }
@@ -625,6 +877,12 @@ footer {
         gap: 330px;
         margin-bottom: 70px;
 
+        @include rs(lg) {
+            gap: 0;
+            grid-template-columns: minmax(1px, 1fr);
+            margin-bottom: 30px;
+        }
+
         .item:nth-of-type(1) {
             z-index: 9;
         }
@@ -634,12 +892,26 @@ footer {
             display: flex;
             flex-direction: column;
             justify-content: end;
+
+            @include rs(lg) {
+                margin-top: 25px;
+            }
         }
     }
 
-    .input-wrap {
-        margin-bottom: 35px;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         width: 100%;
+    }
+
+    .input-wrap {
+        width: 100%;
+
+        @include rs(lg) {
+            margin-bottom: 0;
+        }
     }
 
     .input-wrap:nth-of-type(3) {
@@ -650,6 +922,7 @@ footer {
         color: #fff;
         font-size: 20px;
         font-weight: 400;
+        display: block;
     }
 
     input, textarea {
@@ -657,6 +930,8 @@ footer {
         height: 100%;
         padding-top: 0;
         padding-bottom: 0;
+        max-width: 100%;
+        box-sizing: border-box;
 
         &:focus {
             outline: none;
@@ -673,11 +948,19 @@ footer {
         padding: 8px 20px;
         line-height: 150%;
         height: 60px;
+
+        @include rs(lg) {
+            height: 40px;
+        }
     }
 
     textarea {
         height: 275px;
         resize: none;
+
+        @include rs(lg) {
+            height: 170px;
+        }
     }
 
     p {
@@ -686,10 +969,28 @@ footer {
         text-align: end;
         color: #fff;
 
+        @include rs(lg) {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
         &.mail {
             font-size: 50px;
             font-weight: 700;
             margin-bottom: 95px;
+
+            @include rs(lg) {
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+
+            @include rs(sm) {
+                font-size: 25px;
+            }
+
+            @include rs(xsm) {
+                font-size: 20px;
+            }
         }
 
         span {
@@ -701,6 +1002,10 @@ footer {
         display: flex;
         justify-content: start;
 
+        @include rs(lg) {
+            justify-content: center;
+        }
+
         a {
             @include mainBtn()
         }
@@ -710,5 +1015,9 @@ footer {
         display: flex;
         justify-content: end;
         gap: 25px;
+
+        @include rs(lg) {
+            justify-content: center;
+        }
     }
 }

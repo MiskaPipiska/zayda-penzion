@@ -1,0 +1,28 @@
+$breakpoints: (
+    xxs: 325px,
+    xs: 345px,
+    xs60: 360px,
+    xs420: 420px,
+    xsm: 440px,
+    xmd: 535px,
+    sm: 575px,
+    md: 767px,
+    lg: 991px,
+    xl: 1199px,
+    xl-2: 1299px,
+    xl-3: 1399px,
+    xl-4: 1499px,
+    xl-5: 1599px,
+    xl-6: 1699px,
+    xl-7: 1799px
+);
+
+@mixin rs($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "No such breakpoint '#{$breakpoint}' defined in $breakpoints map.";
+    }
+}

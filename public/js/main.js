@@ -1,3 +1,23 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const navToggler = document.querySelector('.nav-toggler');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    navToggler.addEventListener('click', function () {
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('disabled');
+        hamburger.classList.toggle('open');
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+
+    if (form) {
+        form.reset();
+    }
+});
+
 const defaultSliderSettings = {
     speed: 300,
     slidesToShow: 1,
@@ -25,7 +45,7 @@ $('.image-slider').slick({
             }
         },
         {
-            breakpoint: 575,
+            breakpoint: 767,
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
