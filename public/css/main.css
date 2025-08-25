@@ -70,7 +70,7 @@
 
 .mobile-menu {
   margin-top: 0;
-  background: #fff;
+  background: #664837;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -86,7 +86,7 @@
   bottom: 0;
 }
 .mobile-menu a {
-  color: #000;
+  color: #fff;
 }
 .mobile-menu.active {
   transition: 0.3s ease;
@@ -123,7 +123,7 @@
 .mobile-menu .menu a {
   font-size: 25px;
   font-weight: 700;
-  color: #7E7F8D;
+  color: #fff;
   padding: 10px;
 }
 @media only screen and (max-width: 575px) {
@@ -132,8 +132,7 @@
   }
 }
 .mobile-menu .menu a:hover {
-  color: #fff;
-  background-color: #E3001A;
+  color: #E1E1E1;
   transition: 0.2s ease;
 }
 
@@ -181,15 +180,31 @@ header {
   width: 100%;
   z-index: 9;
 }
+@media only screen and (max-width: 1299px) {
+  header {
+    padding-top: 40px;
+  }
+}
+header.header-secondary {
+  background-image: url("../images/header/header-secondary.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 75px;
+  position: relative;
+  margin-bottom: 90px;
+}
+@media only screen and (max-width: 1299px) {
+  header.header-secondary {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    margin-bottom: 40px;
+  }
+}
 header .item-wrap {
   display: flex;
   justify-content: space-between;
   align-items: end;
-}
-@media only screen and (max-width: 991px) {
-  header .item-wrap {
-    align-items: center;
-  }
 }
 @media only screen and (max-width: 1499px) {
   header .item-wrap .logo-wrap img {
@@ -208,7 +223,7 @@ header .item-wrap {
 }
 @media only screen and (max-width: 575px) {
   header .item-wrap .logo-wrap img {
-    width: 200px;
+    width: 150px;
   }
 }
 header .item-wrap .menu-wrap {
@@ -260,6 +275,10 @@ header .item-wrap .menu-wrap .menu a:hover {
   transition: 0.2s ease;
   border-bottom-color: #C8652F;
 }
+header .item-wrap .menu-wrap .menu a.active {
+  font-weight: 700;
+  border-bottom-color: #C8652F;
+}
 header .item-wrap .menu-wrap .language {
   display: flex;
   align-items: center;
@@ -300,15 +319,14 @@ section.hero {
   width: 100%;
   position: relative;
 }
-@media only screen and (max-width: 1699px) {
+@media only screen and (max-width: 1299px) {
   section.hero {
-    height: 40vh;
+    min-height: 850px;
   }
 }
 @media only screen and (max-width: 991px) {
   section.hero {
-    height: 30vh;
-    min-height: 850px;
+    min-height: 500px;
   }
 }
 section.hero .bg {
@@ -353,9 +371,19 @@ section.hero .hero-content {
   top: 290px;
   max-width: 630px;
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1299px) {
   section.hero .hero-content {
     top: 200px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.hero .hero-content {
+    top: 170px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  section.hero .hero-content {
+    top: 120px;
   }
 }
 section.hero .hero-content h1 {
@@ -381,7 +409,8 @@ section.hero .hero-content h1 {
 }
 @media only screen and (max-width: 767px) {
   section.hero .hero-content h1 {
-    font-size: 50px;
+    font-size: 45px;
+    margin-bottom: 20px;
   }
 }
 section.hero .hero-content p {
@@ -421,6 +450,14 @@ section.hero .hero-content .btn a:hover {
     padding: 10px;
   }
 }
+section.hero .hero-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+section.hero .hero-content ul li {
+  font-size: 35px;
+  line-height: 70px;
+}
 
 section.menu-boxes .box {
   display: grid;
@@ -443,6 +480,7 @@ section.menu-boxes .box {
 @media only screen and (max-width: 767px) {
   section.menu-boxes .box {
     grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 30px;
   }
 }
 @media only screen and (max-width: 440px) {
@@ -486,109 +524,153 @@ section.menu-boxes .box h6 {
   width: 100%;
   margin-bottom: 80px;
 }
-@media only screen and (max-width: 1199px) {
+@media only screen and (max-width: 1299px) {
   .line {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .line {
+    margin-bottom: 30px;
   }
 }
 
 .index-image {
-  width: 670px;
-  height: 530px;
-}
-@media only screen and (max-width: 1199px) {
-  .index-image {
-    height: 100%;
-    width: 100%;
-  }
+  width: 100%;
+  height: 100%;
 }
 .index-image img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
-section.accommodation .box, section.events .box {
+.left-section .box {
   display: grid;
   grid-template-columns: 67fr 93fr;
   gap: 55px;
   margin-bottom: 80px;
 }
-@media only screen and (max-width: 1199px) {
-  section.accommodation .box, section.events .box {
-    grid-template-columns: minmax(1px, 1fr);
+@media only screen and (max-width: 1599px) {
+  .left-section .box {
     gap: 30px;
+  }
+}
+@media only screen and (max-width: 1299px) {
+  .left-section .box {
     margin-bottom: 50px;
   }
 }
-@media only screen and (max-width: 1199px) {
-  section.accommodation .box .index-image, section.events .box .index-image {
+@media only screen and (max-width: 991px) {
+  .left-section .box {
+    grid-template-columns: minmax(1px, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .left-section .box .index-image {
     order: 2;
     display: flex;
     justify-content: center;
   }
 }
-section.accommodation .box .heading, section.events .box .heading {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+.left-section .box .heading {
   padding-right: 100px;
 }
+@media only screen and (max-width: 1599px) {
+  .left-section .box .heading {
+    padding-right: 0;
+  }
+}
 @media only screen and (max-width: 1199px) {
-  section.accommodation .box .heading, section.events .box .heading {
+  .left-section .box .heading {
     order: 1;
     padding-right: 0;
   }
 }
-section.accommodation .box .heading h2, section.events .box .heading h2 {
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.heading h2 {
   font-size: 100px;
   font-weight: 700;
   margin-bottom: 0;
   margin-bottom: 40px;
 }
 @media only screen and (max-width: 1499px) {
-  section.accommodation .box .heading h2, section.events .box .heading h2 {
+  .heading h2 {
     font-size: 80px;
   }
 }
 @media only screen and (max-width: 1299px) {
-  section.accommodation .box .heading h2, section.events .box .heading h2 {
+  .heading h2 {
     font-size: 60px;
   }
 }
 @media only screen and (max-width: 991px) {
-  section.accommodation .box .heading h2, section.events .box .heading h2 {
+  .heading h2 {
     font-size: 40px;
     margin-bottom: 20px;
     text-align: center;
   }
 }
-section.accommodation .box .heading p, section.events .box .heading p {
+@media only screen and (max-width: 440px) {
+  .heading h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+}
+.heading h2.gap {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 1599px) {
+  .heading h2.gap {
+    font-size: 50px;
+  }
+}
+@media only screen and (max-width: 1599px) {
+  .heading h2 br {
+    display: none;
+  }
+}
+.heading p {
   font-size: 25px;
   margin-bottom: 0;
 }
+.heading p.col {
+  margin-top: 25px;
+}
 @media only screen and (max-width: 991px) {
-  section.accommodation .box .heading p, section.events .box .heading p {
-    margin-bottom: 25px;
+  .heading p {
+    margin-bottom: 0;
     font-size: 18px;
     text-align: center;
   }
 }
-section.accommodation .box .heading .btn, section.events .box .heading .btn {
+.heading p span {
+  font-weight: 700;
+}
+.heading .btn {
   display: flex;
   justify-content: start;
 }
 @media only screen and (max-width: 1399px) {
-  section.accommodation .box .heading .btn, section.events .box .heading .btn {
+  .heading .btn {
     margin-top: 30px;
   }
 }
 @media only screen and (max-width: 991px) {
-  section.accommodation .box .heading .btn, section.events .box .heading .btn {
+  .heading .btn {
     justify-content: center;
-    margin-top: 0;
+    margin-top: 15px;
   }
 }
-section.accommodation .box .heading .btn a, section.events .box .heading .btn a {
+.heading .btn a {
   pointer-events: all;
   color: #fff;
   background-color: #C8652F;
@@ -600,138 +682,77 @@ section.accommodation .box .heading .btn a, section.events .box .heading .btn a 
   display: flex;
   justify-content: center;
 }
-section.accommodation .box .heading .btn a:hover, section.events .box .heading .btn a:hover {
+.heading .btn a:hover {
   transition: 0.2s ease;
   background-color: #664837;
 }
 @media only screen and (max-width: 991px) {
-  section.accommodation .box .heading .btn a, section.events .box .heading .btn a {
+  .heading .btn a {
     font-size: 20px;
     width: 150px;
     padding: 10px;
   }
 }
 
-section.kitchen .box, section.alpacas .box {
+.right-section .box {
   display: grid;
   grid-template-columns: 76fr 67fr;
   gap: 155px;
   margin-bottom: 80px;
 }
-@media only screen and (max-width: 1499px) {
-  section.kitchen .box, section.alpacas .box {
-    gap: 100px;
-  }
-}
-@media only screen and (max-width: 1199px) {
-  section.kitchen .box, section.alpacas .box {
-    grid-template-columns: minmax(1px, 1fr);
-    margin-bottom: 50px;
-    gap: 0;
-  }
-}
-section.kitchen .box .heading, section.alpacas .box .heading {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-@media only screen and (max-width: 1199px) {
-  section.kitchen .box .heading, section.alpacas .box .heading {
-    margin-bottom: 30px;
-  }
-}
-section.kitchen .box h2, section.alpacas .box h2 {
-  font-size: 100px;
-  font-weight: 700;
-  margin-bottom: 0;
-  margin-bottom: 40px;
-}
-@media only screen and (max-width: 1499px) {
-  section.kitchen .box h2, section.alpacas .box h2 {
-    font-size: 80px;
+@media only screen and (max-width: 1599px) {
+  .right-section .box {
+    gap: 50px;
   }
 }
 @media only screen and (max-width: 1299px) {
-  section.kitchen .box h2, section.alpacas .box h2 {
-    font-size: 60px;
+  .right-section .box {
+    margin-bottom: 50px;
   }
 }
 @media only screen and (max-width: 991px) {
-  section.kitchen .box h2, section.alpacas .box h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    text-align: center;
+  .right-section .box {
+    grid-template-columns: minmax(1px, 1fr);
+    margin-bottom: 30px;
+    gap: 0;
   }
 }
-section.kitchen .box p, section.alpacas .box p {
-  font-size: 25px;
-  margin-bottom: 0;
+.right-section .box .heading {
+  order: 0;
 }
-@media only screen and (max-width: 991px) {
-  section.kitchen .box p, section.alpacas .box p {
-    text-align: center;
-    font-size: 18px;
+@media only screen and (max-width: 1199px) {
+  .right-section .box .heading {
+    margin-bottom: 30px;
   }
 }
-section.kitchen .box .text-wrap, section.alpacas .box .text-wrap {
+.right-section .box .index-image {
+  order: 1;
+}
+.right-section .box .text-wrap {
   display: flex;
   flex-direction: column;
   gap: 35px;
 }
-section.kitchen .box .text-wrap h5, section.alpacas .box .text-wrap h5 {
+.right-section .box .text-wrap h5 {
   font-size: 25px;
   font-weight: 700;
   margin-bottom: 0;
 }
 @media only screen and (max-width: 991px) {
-  section.kitchen .box .text-wrap h5, section.alpacas .box .text-wrap h5 {
+  .right-section .box .text-wrap h5 {
     text-align: center;
     font-size: 22px;
   }
 }
-section.kitchen .box .btn, section.alpacas .box .btn {
-  display: flex;
-  justify-content: start;
-}
-@media only screen and (max-width: 1399px) {
-  section.kitchen .box .btn, section.alpacas .box .btn {
-    margin-top: 30px;
-  }
-}
-@media only screen and (max-width: 991px) {
-  section.kitchen .box .btn, section.alpacas .box .btn {
-    justify-content: center;
-    margin-top: 20px;
-  }
-}
-section.kitchen .box .btn a, section.alpacas .box .btn a {
-  pointer-events: all;
-  color: #fff;
-  background-color: #C8652F;
-  padding: 15px 0;
-  font-size: 25px;
-  font-weight: 400;
-  transition: 0.2s ease;
-  width: 205px;
-  display: flex;
-  justify-content: center;
-}
-section.kitchen .box .btn a:hover, section.alpacas .box .btn a:hover {
-  transition: 0.2s ease;
-  background-color: #664837;
-}
-@media only screen and (max-width: 991px) {
-  section.kitchen .box .btn a, section.alpacas .box .btn a {
-    font-size: 20px;
-    width: 150px;
-    padding: 10px;
-  }
+
+section.grunik {
+  margin-top: 200px;
 }
 
 section.apartments {
   padding-bottom: 205px;
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1199px) {
   section.apartments {
     padding-bottom: 50px;
   }
@@ -755,6 +776,18 @@ section.apartments .box {
 @media only screen and (max-width: 767px) {
   section.apartments .box {
     grid-template-columns: minmax(1px, 1fr);
+  }
+}
+@media only screen and (max-width: 1199px) {
+  section.apartments .box .item:nth-of-type(3) {
+    grid-column: 1/span 2;
+    justify-self: center;
+    width: fit-content;
+  }
+}
+@media only screen and (max-width: 767px) {
+  section.apartments .box .item:nth-of-type(3) {
+    grid-column: initial;
   }
 }
 section.apartments .box .hotel {
@@ -792,7 +825,7 @@ section.apartments .box h3 {
 @media only screen and (max-width: 991px) {
   section.apartments .box h3 {
     font-size: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 }
 section.apartments .box ul {
@@ -818,7 +851,7 @@ section.apartments .box ul li {
 @media only screen and (max-width: 991px) {
   section.apartments .box ul li {
     font-size: 18px;
-    line-height: 30px;
+    line-height: 25px;
   }
 }
 section.apartments .box .btn {
@@ -889,7 +922,7 @@ section.gallery .slick-prev, section.gallery .slick-next {
 section.gallery .slick-dotted.slick-slider {
   margin-bottom: 130px;
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1299px) {
   section.gallery .slick-dotted.slick-slider {
     margin-bottom: 50px;
   }
@@ -989,15 +1022,24 @@ footer .title {
     align-items: center;
   }
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1399px) {
   footer .title .logo-wrap {
-    order: 1;
     margin-bottom: 15px;
   }
 }
-@media only screen and (max-width: 991px) and (max-width: 991px) {
+@media only screen and (max-width: 1399px) and (max-width: 1399px) {
+  footer .title .logo-wrap img {
+    width: 350px;
+  }
+}
+@media only screen and (max-width: 1399px) and (max-width: 991px) {
   footer .title .logo-wrap img {
     width: 250px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  footer .title .logo-wrap {
+    order: 1;
   }
 }
 footer .title h3 {
@@ -1005,10 +1047,16 @@ footer .title h3 {
   color: #fff;
   margin-bottom: 0;
 }
+@media only screen and (max-width: 1399px) {
+  footer .title h3 {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+}
 @media only screen and (max-width: 991px) {
   footer .title h3 {
-    font-size: 25px;
     order: 2;
+    font-size: 25px;
     text-align: center;
   }
 }
@@ -1016,6 +1064,11 @@ footer .title h3 span {
   font-size: 70px;
   font-weight: 700;
   display: block;
+}
+@media only screen and (max-width: 1399px) {
+  footer .title h3 span {
+    font-size: 45px;
+  }
 }
 @media only screen and (max-width: 991px) {
   footer .title h3 span {
@@ -1028,9 +1081,18 @@ footer .box {
   gap: 330px;
   margin-bottom: 70px;
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1699px) {
+  footer .box {
+    gap: 150px;
+  }
+}
+@media only screen and (max-width: 1399px) {
   footer .box {
     gap: 0;
+  }
+}
+@media only screen and (max-width: 991px) {
+  footer .box {
     grid-template-columns: minmax(1px, 1fr);
     margin-bottom: 30px;
   }
@@ -1126,7 +1188,7 @@ footer p.mail {
   font-weight: 700;
   margin-bottom: 95px;
 }
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1399px) {
   footer p.mail {
     font-size: 30px;
     margin-bottom: 30px;
@@ -1186,6 +1248,81 @@ footer .socials {
   footer .socials {
     justify-content: center;
   }
+}
+
+section.reservation {
+  padding-top: 90px;
+  padding-bottom: 130px;
+}
+section.reservation .box {
+  display: grid;
+  grid-template-columns: 86fr 67fr;
+  gap: 60px;
+}
+section.reservation .box h5 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+section.reservation .box p {
+  font-size: 25px;
+  max-width: 760px;
+  margin-bottom: 10px;
+}
+section.reservation .box .price {
+  display: flex;
+  flex-direction: column;
+  border: 10px solid #C8652F;
+  padding: 20px 30px;
+}
+section.reservation .box .price span {
+  color: #C8652F;
+  font-weight: 700;
+  font-size: 50px;
+}
+section.reservation .box .price small {
+  font-size: 25px;
+  color: #000;
+  margin-bottom: 25px;
+}
+section.reservation .box .price .btn {
+  display: flex;
+  justify-content: start;
+}
+section.reservation .box .price .btn a {
+  pointer-events: all;
+  color: #fff;
+  background-color: #C8652F;
+  padding: 15px 0;
+  font-size: 25px;
+  font-weight: 400;
+  transition: 0.2s ease;
+  width: 205px;
+  display: flex;
+  justify-content: center;
+}
+section.reservation .box .price .btn a:hover {
+  transition: 0.2s ease;
+  background-color: #664837;
+}
+@media only screen and (max-width: 991px) {
+  section.reservation .box .price .btn a {
+    font-size: 20px;
+    width: 150px;
+    padding: 10px;
+  }
+}
+
+section.hotel-images {
+  padding-bottom: 130px;
+}
+section.hotel-images .box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+section.hotel-images .box .index-image {
+  height: 506px;
 }
 
 /*# sourceMappingURL=main.css.map */

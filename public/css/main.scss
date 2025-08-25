@@ -65,6 +65,11 @@ $breakpoints: (
         margin-bottom: 20px;
         text-align: center;
     }
+
+    @include rs(xsm) {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
 }
 
 body {
@@ -112,14 +117,30 @@ header {
     width: 100%;
     z-index: 9;
 
+    @include rs(xl-2) {
+        padding-top: 40px;
+    }
+
+    &.header-secondary {
+        background-image: url("../images/header/header-secondary.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding-bottom: 75px;
+        position: relative;
+        margin-bottom: 90px;
+
+        @include rs(xl-2) {
+            padding-bottom: 40px;
+            padding-top: 40px;
+            margin-bottom: 40px;
+        }
+    }
+
     .item-wrap {
         display: flex;
         justify-content: space-between;
         align-items: end;
-
-        @include rs(lg) {
-            align-items: center;
-        }
 
         .logo-wrap {
             img {
@@ -136,7 +157,7 @@ header {
                 }
 
                 @include rs(sm) {
-                    width: 200px;
+                    width: 150px;
                 }
             }
         }
@@ -184,6 +205,11 @@ header {
                         transition: .2s ease;
                         border-bottom-color: #C8652F;
                     }
+
+                    &.active {
+                        font-weight: 700;
+                        border-bottom-color: #C8652F;
+                    }
                 }
             }
 
@@ -229,13 +255,12 @@ section.hero {
     width: 100%;
     position: relative;
 
-    @include rs(xl-6) {
-        height: 40vh;
+    @include rs(xl-2) {
+        min-height: 850px;
     }
 
     @include rs(lg) {
-        height: 30vh;
-        min-height: 850px;
+        min-height: 500px;
     }
 
     .bg {
@@ -290,8 +315,16 @@ section.hero {
         top: 290px;
         max-width: 630px;
 
-        @include rs(lg) {
+        @include rs(xl-2) {
             top: 200px;
+        }
+
+        @include rs(lg) {
+            top: 170px;
+        }
+
+        @include rs(sm) {
+            top: 120px;
         }
 
         h1 {
@@ -313,7 +346,8 @@ section.hero {
             }
 
             @include rs(md) {
-                font-size: 50px;
+                font-size: 45px;
+                margin-bottom: 20px;
             }
         }
 
@@ -333,6 +367,16 @@ section.hero {
 
             a {
                 @include mainBtn()
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+
+            li {
+                font-size: 35px;
+                line-height: 70px;
             }
         }
     }
@@ -357,6 +401,7 @@ section.menu-boxes {
 
         @include rs(md) {
             grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 30px;
         }
 
         @include rs(xsm) {
@@ -403,41 +448,49 @@ section.menu-boxes {
     width: 100%;
     margin-bottom: 80px;
 
-    @include rs(xl) {
-        margin-bottom: 40px;
+    @include rs(xl-2) {
+        margin-bottom: 50px;
+    }
+
+    @include rs(lg) {
+        margin-bottom: 30px;
     }
 }
 
 .index-image {
-    width: 670px;
-    height: 530px;
-
-    @include rs(xl) {
-        height: 100%;
-        width: 100%;
-    }
+    width: 100%;
+    height: 100%;
 
     img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
 }
 
-section.accommodation, section.events {
+.left-section {
     .box {
         display: grid;
         grid-template-columns: 67fr 93fr;
         gap: 55px;
         margin-bottom: 80px;
 
-        @include rs(xl) {
-            grid-template-columns: minmax(1px, 1fr);
+        @include rs(xl-5) {
             gap: 30px;
+        }
+
+        @include rs(xl-2) {
             margin-bottom: 50px;
         }
 
+        @include rs(lg) {
+            grid-template-columns: minmax(1px, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
         .index-image {
-            @include rs(xl) {
+            @include rs(lg) {
                 order: 2;
                 display: flex;
                 justify-content: center;
@@ -445,93 +498,114 @@ section.accommodation, section.events {
         }
 
         .heading {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
             padding-right: 100px;
+
+            @include rs(xl-5) {
+                padding-right: 0;
+            }
 
             @include rs(xl) {
                 order: 1;
                 padding-right: 0;
             }
-
-            h2 {
-                @include h2;
-                margin-bottom: 40px;
-            }
-
-            p {
-                font-size: 25px;
-                margin-bottom: 0;
-
-                @include rs(lg) {
-                    margin-bottom: 25px;
-                    font-size: 18px;
-                    text-align: center;
-                }
-            }
-
-            .btn {
-                display: flex;
-                justify-content: start;
-
-                @include rs(xl-3) {
-                    margin-top: 30px;
-                }
-
-                @include rs(lg) {
-                    justify-content: center;
-                    margin-top: 0;
-                }
-
-                a {
-                    @include mainBtn()
-                }
-            }
         }
     }
 }
 
-section.kitchen, section.alpacas {
+.heading {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    h2 {
+        @include h2;
+        margin-bottom: 40px;
+
+        &.gap {
+            font-size: 70px;
+            margin-bottom: 10px;
+
+            @include rs(xl-5) {
+                font-size: 50px;
+            }
+        }
+
+        br {
+            @include rs(xl-5) {
+                display: none;
+            }
+        }
+    }
+
+    p {
+        font-size: 25px;
+        margin-bottom: 0;
+
+        &.col {
+            margin-top: 25px;
+        }
+
+        @include rs(lg) {
+            margin-bottom: 0;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    .btn {
+        display: flex;
+        justify-content: start;
+
+        @include rs(xl-3) {
+            margin-top: 30px;
+        }
+
+        @include rs(lg) {
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        a {
+            @include mainBtn()
+        }
+    }
+}
+
+.right-section {
     .box {
         display: grid;
         grid-template-columns: 76fr 67fr;
         gap: 155px;
         margin-bottom: 80px;
 
-        @include rs(xl-4) {
-            gap: 100px;
+        @include rs(xl-5) {
+            gap: 50px;
         }
 
-        @include rs(xl) {
-            grid-template-columns: minmax(1px, 1fr);
+        @include rs(xl-2) {
             margin-bottom: 50px;
+        }
+
+        @include rs(lg) {
+            grid-template-columns: minmax(1px, 1fr);
+            margin-bottom: 30px;
             gap: 0;
         }
 
         .heading {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
+            order: 0;
 
             @include rs(xl) {
                 margin-bottom: 30px;
             }
         }
 
-        h2 {
-            @include h2;
-            margin-bottom: 40px;
-        }
-
-        p {
-            font-size: 25px;
-            margin-bottom: 0;
-
-            @include rs(lg) {
-                text-align: center;
-                font-size: 18px;
-            }
+        .index-image {
+            order: 1;
         }
 
         .text-wrap {
@@ -550,31 +624,17 @@ section.kitchen, section.alpacas {
                 }
             }
         }
-
-        .btn {
-            display: flex;
-            justify-content: start;
-
-            @include rs(xl-3) {
-                margin-top: 30px;
-            }
-
-            @include rs(lg) {
-                justify-content: center;
-                margin-top: 20px;
-            }
-
-            a {
-                @include mainBtn()
-            }
-        }
     }
+}
+
+section.grunik {
+    margin-top: 200px;
 }
 
 section.apartments {
     padding-bottom: 205px;
 
-    @include rs(lg) {
+    @include rs(xl) {
         padding-bottom: 50px;
     }
 
@@ -594,6 +654,18 @@ section.apartments {
 
         @include rs(md) {
             grid-template-columns: minmax(1px, 1fr);
+        }
+
+        .item:nth-of-type(3) {
+            @include rs(xl) {
+                grid-column: 1 / span 2;
+                justify-self: center;
+                width: fit-content;
+            }
+
+            @include rs(md) {
+                grid-column: initial;
+            }
         }
 
         .hotel {
@@ -629,7 +701,7 @@ section.apartments {
 
             @include rs(lg) {
                 font-size: 30px;
-                margin-bottom: 15px;
+                margin-bottom: 10px;
             }
         }
 
@@ -653,7 +725,7 @@ section.apartments {
 
                 @include rs(lg) {
                     font-size: 18px;
-                    line-height: 30px;
+                    line-height: 25px;
                 }
             }
         }
@@ -717,7 +789,7 @@ section.gallery {
     .slick-dotted.slick-slider {
         margin-bottom: 130px;
 
-        @include rs(lg) {
+        @include rs(xl-2) {
             margin-bottom: 50px;
         }
     }
@@ -836,15 +908,22 @@ footer {
         }
 
         .logo-wrap {
-            @include rs(lg) {
-                order: 1;
+            @include rs(xl-3) {
                 margin-bottom: 15px;
 
                 img {
+                    @include rs(xl-3) {
+                        width: 350px;
+                    }
+
                     @include rs(lg) {
                         width: 250px;
                     }
                 }
+            }
+
+            @include rs(lg) {
+                order: 1;
             }
         }
 
@@ -853,9 +932,14 @@ footer {
             color: #fff;
             margin-bottom: 0;
 
+            @include rs(xl-3) {
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
+
             @include rs(lg) {
-                font-size: 25px;
                 order: 2;
+                font-size: 25px;
                 text-align: center;
             }
 
@@ -863,6 +947,10 @@ footer {
                 font-size: 70px;
                 font-weight: 700;
                 display: block;
+
+                @include rs(xl-3) {
+                    font-size: 45px;
+                }
 
                 @include rs(lg) {
                     font-size: 30px;
@@ -877,8 +965,15 @@ footer {
         gap: 330px;
         margin-bottom: 70px;
 
-        @include rs(lg) {
+        @include rs(xl-6) {
+            gap: 150px;
+        }
+
+        @include rs(xl-3) {
             gap: 0;
+        }
+
+        @include rs(lg) {
             grid-template-columns: minmax(1px, 1fr);
             margin-bottom: 30px;
         }
@@ -979,7 +1074,7 @@ footer {
             font-weight: 700;
             margin-bottom: 95px;
 
-            @include rs(lg) {
+            @include rs(xl-3) {
                 font-size: 30px;
                 margin-bottom: 30px;
             }
@@ -1018,6 +1113,71 @@ footer {
 
         @include rs(lg) {
             justify-content: center;
+        }
+    }
+}
+
+section.reservation {
+    padding-top: 90px;
+    padding-bottom: 130px;
+
+    .box {
+        display: grid;
+        grid-template-columns: 86fr 67fr;
+        gap: 60px;
+
+        h5 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 25px;
+            max-width: 760px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            display: flex;
+            flex-direction: column;
+            border: 10px solid #C8652F;
+            padding: 20px 30px;
+
+            span {
+                color: #C8652F;
+                font-weight: 700;
+                font-size: 50px;
+            }
+
+            small {
+                font-size: 25px;
+                color: #000;
+                margin-bottom: 25px;
+            }
+
+            .btn {
+                display: flex;
+                justify-content: start;
+
+                a {
+                    @include mainBtn()
+                }
+            }
+        }
+    }
+}
+
+section.hotel-images {
+    padding-bottom: 130px;
+
+    .box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+
+        .index-image {
+            height: 506px;
         }
     }
 }

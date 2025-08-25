@@ -30,108 +30,15 @@
             </div>
         </div>
     </section>
-    <section class="accommodation">
-        <div class="container">
-            <div class="box">
-                <div class="index-image">
-                    <img src="{{asset('images/index/hotel-room.jpg')}}" alt="room">
-                </div>
-                <div class="heading">
-                    <div class="wrap">
-                        <h2>UBYTOVANIE</h2>
-                        <p>
-                            V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou
-                            .......
-                            osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú
-                            pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na
-                            Vašu
-                            návštevu.
-                        </p>
-                    </div>
-                    <div class="btn">
-                        <a href="">viac info</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="line"></div>
-    </section>
-    <section class="kitchen">
-        <div class="container">
-            <div class="box">
-                <div class="heading">
-                    <div class="wrap">
-                        <h2>KUCHYŇA</h2>
-                        <div class="text-wrap">
-                            <div class="text">
-                                <h5>RAŇAJKY (neubytovaní hostia)</h5>
-                                <p>Raňajky podávame každý deň v čase 10:00 - 14:00 hod.</p>
-                            </div>
-                            <div class="text">
-                                <h5>MENU (neubytovaní hostia)</h5>
-                                <p>Štandardné menu podávame každý deň v čase 15:00 - 19:00 hod.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn">
-                        <a href="">menu</a>
-                    </div>
-                </div>
-                <div class="index-image">
-                    <img src="{{asset('images/index/kitchen.jpg')}}" alt="food">
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-    </section>
-    <section class="events">
-        <div class="container">
-            <div class="box">
-                <div class="index-image">
-                    <img src="{{asset('images/index/hotel-room.jpg')}}" alt="room">
-                </div>
-                <div class="heading">
-                    <div class="wrap">
-                        <h2>EVENTY</h2>
-                        <p>
-                            V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou
-                            ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov
-                            sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na
-                            Vašu návštevu.
-                        </p>
-                    </div>
-                    <div class="btn">
-                        <a href="">viac info</a>
-                    </div>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-    </section>
-    <section class="alpacas">
-        <div class="container">
-            <div class="box">
-                <div class="heading">
-                    <div class="wrap">
-                        <h2>ALPAKY</h2>
-                        <p>
-                            V areály nášho penziónu chováme aj alpaky. Hana a Andy sú súčasťou našej rodiny. Deti
-                            naše alpaky milujú a tak ako ubytovaní hostia, tak aj neubytovaní hostia majú možnosť
-                            rezervácie programu s našimi alpakami. Či je to kŕmenie, starostlivosť o alpaky alebo
-                            vychádzka do prírody, tak sme pripravení. Hana a Andy sa tešia na Vás.
-                        </p>
-                    </div>
-                    <div class="btn">
-                        <a href="">viac info</a>
-                    </div>
-                </div>
-                <div class="index-image">
-                    <img src="{{asset('images/index/alpacas.jpg')}}" alt="alpacas">
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-    </section>
+    @foreach($IndexContent as $index => $item)
+        <x-index-content
+            :type="$index % 2 === 0 ? 'left-section' : 'right-section'"
+            :title="$item['title']"
+            :text="$item['text']"
+            :image="$item['image']"
+            :button="$item['button']"
+        />
+    @endforeach
     <section class="apartments">
         <div class="container">
             <div class="box">

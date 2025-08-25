@@ -88,10 +88,110 @@ class MainController extends Controller
             ],
         ];
 
+        $IndexContent = [
+            [
+                "title" => "UBYTOVANIE",
+                "text" => "V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na Vašu návštevu. ",
+                "image" => "images/index/hotel-room.jpg",
+                "button" => "viac info"
+            ],
+            [
+                "title" => "KUCHYŇA",
+                "text" => "V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na Vašu návštevu. ",
+                "image" => "images/index/kitchen.jpg",
+                "button" => "menu"
+            ],
+            [
+                "title" => "EVENTY",
+                "text" => "V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na Vašu návštevu. ",
+                "image" => "images/index/hotel-room.jpg",
+                "button" => "viac info"
+            ],
+            [
+                "title" => "ALPAKY",
+                "text" => "V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na Vašu návštevu. ",
+                "image" => "images/index/alpacas.jpg",
+                "button" => "viac info"
+            ],
+        ];
+
         return view('index', compact(
             'boxItems',
             'apartmentMenu',
             'sliderImages',
+            'IndexContent',
         ));
+    }
+
+    public function getAccommodation()
+    {
+        $sliderImages = [
+            [
+                'img' => 'images/index/food.jpg',
+            ],
+            [
+                'img' => 'images/index/zayda.jpg',
+            ],
+            [
+                'img' => 'images/index/outside.jpg',
+            ],
+            [
+                'img' => 'images/index/food.jpg',
+            ],
+            [
+                'img' => 'images/index/zayda.jpg',
+            ],
+            [
+                'img' => 'images/index/outside.jpg',
+            ],
+        ];
+
+        $ContentSection = [
+            [
+                "image" => "images/index/hotel-room.jpg",
+                "title" => "APARTMÁN\nLIŠKOVA",
+                "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
+                "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
+                "button" => "viac info",
+            ],
+            [
+                "image" => "images/index/hotel-room.jpg",
+                "title" => "APARTMÁN\nKÝČERKA",
+                "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
+                "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
+                "button" => "viac info",
+            ],
+            [
+                "image" => "images/index/hotel-room.jpg",
+                "title" => "APARTMÁN\nHÔRKA",
+                "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
+                "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
+                "button" => "viac info",
+            ],
+            [
+                "image" => "images/index/hotel-room.jpg",
+                "title" => "APARTMÁN\nTABLA",
+                "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
+                "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
+                "button" => "viac info",
+            ],
+            [
+                "image" => "images/index/hotel-room.jpg",
+                "title" => "APARTMÁN\nGRÚNIK",
+                "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
+                "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
+                "button" => "viac info",
+            ],
+        ];
+
+        return view('accommodation', compact(
+            'sliderImages',
+            'ContentSection',
+        ));
+    }
+
+    public function getAccommodationDetail()
+    {
+        return view('accommodation-detail');
     }
 }
