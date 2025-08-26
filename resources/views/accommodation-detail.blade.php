@@ -1,7 +1,7 @@
 @extends('layout.base')
 
 @section('content')
-    <section class="hero">
+    <section class="hero detail">
         <div class="bg left"></div>
         <div class="bg top"></div>
         <div class="container">
@@ -42,28 +42,14 @@
     </section>
     <section class="hotel-images">
         <div class="container">
-            <div class="box">
-                <div class="item">
-                    <div class="index-image">
-                        <img src="{{asset('images/index/hotel-room.jpg')}}" alt="room">
-                    </div>
-                    <div class="index-image">
-                        <img src="{{asset('images/index/hotel-room.jpg')}}" alt="room">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="index-image">
-                        <img src="{{asset('images/index/hotel-room.jpg')}}" alt="room">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="index-image">
-                        <img src="{{asset('images/index/hotel-room.jpg')}}" alt="room">
-                    </div>
-                    <div class="index-image">
-                        <img src="{{asset('images/index/hotel-room.jpg')}}" alt="room">
-                    </div>
-                </div>
+            <div class="imagesBox">
+                <div class="img img1"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
+                <div class="img img2"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
+                <div class="img img3"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
+                <div class="img img4"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
+                <div class="img img5"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
+                <div class="img img6"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
+                <div class="img img7"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
             </div>
         </div>
     </section>

@@ -3,14 +3,13 @@
 @section('content')
     @foreach($ContentSection as $index => $item)
         <x-content-section
-            :type="$index % 2 === 0 ? 'left-section' : 'right-section'"
+            :span="$item['span']"
+            :type="$item['type']"
             :title="$item['title']"
             :text="$item['text']"
             :image="$item['image']"
             :capacity="$item['capacity']"
             :button="$item['button']"
-            gap="gap"
-            col="col"
         />
     @endforeach
     <section class="gallery">

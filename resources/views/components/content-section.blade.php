@@ -1,12 +1,11 @@
 @props([
     "type" => "right-section",
     "title",
+    "span",
     "text",
     "button",
     "image",
     "capacity",
-    "gap" => "",
-    "col" => "",
 ])
 
 <section class="{{$type}}">
@@ -17,9 +16,9 @@
             </div>
             <div class="heading">
                 <div class="wrap">
-                    <h2 class="{{$gap}}">{!! nl2br(e($title)) !!}</h2>
+                    <h4><span>{{$span}}</span> {{$title}}</h4>
                     <p><span>{{$capacity}}</span></p>
-                    <p class="{{$col}}">{{$text}}</p>
+                    <p>{{$text}}</p>
                 </div>
                 <div class="btn">
                     <a href="{{ route('accommodation-detail') }}">{{$button}}</a>

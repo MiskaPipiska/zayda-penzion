@@ -32,7 +32,7 @@
     </section>
     @foreach($IndexContent as $index => $item)
         <x-index-content
-            :type="$index % 2 === 0 ? 'left-section' : 'right-section'"
+            :type="$item['type']"
             :title="$item['title']"
             :text="$item['text']"
             :image="$item['image']"

@@ -201,6 +201,12 @@ header.header-secondary {
     margin-bottom: 40px;
   }
 }
+@media only screen and (max-width: 575px) {
+  header.header-secondary {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
 header .item-wrap {
   display: flex;
   justify-content: space-between;
@@ -319,6 +325,12 @@ section.hero {
   width: 100%;
   position: relative;
 }
+@media only screen and (max-width: 991px) {
+  section.hero.detail {
+    min-height: 0;
+    max-height: 600px;
+  }
+}
 @media only screen and (max-width: 1299px) {
   section.hero {
     min-height: 850px;
@@ -343,12 +355,13 @@ section.hero .bg.left {
 }
 @media only screen and (max-width: 1299px) {
   section.hero .bg.left {
-    width: 110%;
+    width: 100%;
+    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 1%, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 110%);
   }
 }
 @media only screen and (max-width: 991px) {
   section.hero .bg.left {
-    width: 130%;
+    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 1%, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.5) 70%, rgba(255, 255, 255, 0.2) 90%, rgba(255, 255, 255, 0) 170%);
   }
 }
 section.hero .bg.top {
@@ -458,6 +471,12 @@ section.hero .hero-content ul li {
   font-size: 35px;
   line-height: 70px;
 }
+@media only screen and (max-width: 991px) {
+  section.hero .hero-content ul li {
+    font-size: 20px;
+    line-height: 40px;
+  }
+}
 
 section.menu-boxes .box {
   display: grid;
@@ -520,7 +539,8 @@ section.menu-boxes .box h6 {
 }
 
 .line {
-  border: 1px solid #9A9A9A;
+  height: 1px;
+  background-color: #9A9A9A;
   width: 100%;
   margin-bottom: 80px;
 }
@@ -624,26 +644,43 @@ section.menu-boxes .box h6 {
     margin-bottom: 10px;
   }
 }
-.heading h2.gap {
+.heading h4 {
   font-size: 70px;
+  font-weight: 700;
   margin-bottom: 10px;
 }
-@media only screen and (max-width: 1599px) {
-  .heading h2.gap {
+@media only screen and (max-width: 1499px) {
+  .heading h4 {
     font-size: 50px;
   }
 }
+@media only screen and (max-width: 991px) {
+  .heading h4 {
+    font-size: 40px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .heading h4 {
+    font-size: 30px;
+  }
+}
+.heading h4 span {
+  display: block;
+}
+@media only screen and (max-width: 1499px) {
+  .heading h4 span {
+    display: initial;
+  }
+}
 @media only screen and (max-width: 1599px) {
-  .heading h2 br {
+  .heading br {
     display: none;
   }
 }
 .heading p {
   font-size: 25px;
-  margin-bottom: 0;
-}
-.heading p.col {
-  margin-top: 25px;
+  margin-bottom: 25px;
 }
 @media only screen and (max-width: 991px) {
   .heading p {
@@ -1254,10 +1291,26 @@ section.reservation {
   padding-top: 90px;
   padding-bottom: 130px;
 }
+@media only screen and (max-width: 1299px) {
+  section.reservation {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
 section.reservation .box {
   display: grid;
   grid-template-columns: 86fr 67fr;
   gap: 60px;
+}
+@media only screen and (max-width: 1299px) {
+  section.reservation .box {
+    gap: 30px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.reservation .box {
+    grid-template-columns: minmax(1px, 1fr);
+  }
 }
 section.reservation .box h5 {
   font-size: 40px;
@@ -1267,13 +1320,23 @@ section.reservation .box h5 {
 section.reservation .box p {
   font-size: 25px;
   max-width: 760px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+}
+@media only screen and (max-width: 991px) {
+  section.reservation .box p {
+    max-width: 100%;
+  }
 }
 section.reservation .box .price {
   display: flex;
   flex-direction: column;
   border: 10px solid #C8652F;
   padding: 20px 30px;
+}
+@media only screen and (max-width: 991px) {
+  section.reservation .box .price {
+    padding: 15px;
+  }
 }
 section.reservation .box .price span {
   color: #C8652F;
@@ -1316,13 +1379,155 @@ section.reservation .box .price .btn a:hover {
 section.hotel-images {
   padding-bottom: 130px;
 }
-section.hotel-images .box {
+@media only screen and (max-width: 1299px) {
+  section.hotel-images {
+    padding-bottom: 60px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.hotel-images {
+    padding-bottom: 30px;
+  }
+}
+section.hotel-images .imagesBox {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  grid-template-areas: "a b c" "d b e" "f f g";
+}
+@media only screen and (max-width: 1499px) {
+  section.hotel-images .imagesBox {
+    gap: 20px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.hotel-images .imagesBox {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "a b" "d b" "f f" "c e" "g g";
+  }
+}
+@media only screen and (max-width: 767px) {
+  section.hotel-images .imagesBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+section.hotel-images .imagesBox .img {
+  width: 100%;
+  overflow: hidden;
+}
+section.hotel-images .imagesBox .img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section.hotel-images .imagesBox .img.img1, section.hotel-images .imagesBox .img.img3, section.hotel-images .imagesBox .img.img4, section.hotel-images .imagesBox .img.img5, section.hotel-images .imagesBox .img.img7 {
+  height: 506px;
+}
+section.hotel-images .imagesBox .img.img2 {
+  height: 100%;
+}
+section.hotel-images .imagesBox .img.img6 {
+  height: 506px;
+}
+section.hotel-images .imagesBox .img.img1 {
+  grid-area: a;
+}
+section.hotel-images .imagesBox .img.img2 {
+  grid-area: b;
+}
+section.hotel-images .imagesBox .img.img3 {
+  grid-area: c;
+}
+section.hotel-images .imagesBox .img.img4 {
+  grid-area: d;
+}
+section.hotel-images .imagesBox .img.img5 {
+  grid-area: e;
+}
+section.hotel-images .imagesBox .img.img6 {
+  grid-area: f;
+}
+section.hotel-images .imagesBox .img.img7 {
+  grid-area: g;
+}
+@media only screen and (max-width: 575px) {
+  section.hotel-images .imagesBox .img.img1,
+  section.hotel-images .imagesBox .img.img2,
+  section.hotel-images .imagesBox .img.img3,
+  section.hotel-images .imagesBox .img.img4,
+  section.hotel-images .imagesBox .img.img5,
+  section.hotel-images .imagesBox .img.img6,
+  section.hotel-images .imagesBox .img.img7 {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+section.price-list {
+  padding-top: 90px;
+  padding-bottom: 100px;
+}
+section.price-list h4 {
+  font-size: 70px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-bottom: 60px;
+}
+@media only screen and (max-width: 1499px) {
+  section.price-list h4 {
+    font-size: 50px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.price-list h4 {
+    font-size: 40px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 440px) {
+  section.price-list h4 {
+    font-size: 30px;
+  }
+}
+section.price-list .box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+section.price-list .box .item:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
   gap: 40px;
 }
-section.hotel-images .box .index-image {
-  height: 506px;
+section.price-list .box h5 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+section.price-list .box ul {
+  margin-bottom: 0;
+}
+section.price-list .box ul li {
+  font-size: 25px;
+  line-height: 40px;
+}
+section.price-list .box p {
+  font-size: 25px;
+  padding-bottom: 0;
+}
+section.price-list .box .text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+section.price-list .box .text-wrap p {
+  margin-bottom: 0;
+}
+section.price-list .box .text-wrap p:nth-of-type(1) {
+  margin-top: 40px;
 }
 
 /*# sourceMappingURL=main.css.map */

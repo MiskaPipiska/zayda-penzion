@@ -72,6 +72,25 @@ $breakpoints: (
     }
 }
 
+@mixin h4 {
+    font-size: 70px;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    @include rs(xl-4) {
+        font-size: 50px;
+    }
+
+    @include rs(lg) {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    @include rs(xsm) {
+        font-size: 30px;
+    }
+}
+
 body {
     font-family: "Lexend Deca", sans-serif;
     font-weight: 400;
@@ -134,6 +153,11 @@ header {
             padding-bottom: 40px;
             padding-top: 40px;
             margin-bottom: 40px;
+        }
+
+        @include rs(sm) {
+            padding-top: 30px;
+            padding-bottom: 30px;
         }
     }
 
@@ -255,6 +279,13 @@ section.hero {
     width: 100%;
     position: relative;
 
+    &.detail {
+        @include rs(lg) {
+            min-height: 0;
+            max-height: 600px;
+        }
+    }
+
     @include rs(xl-2) {
         min-height: 850px;
     }
@@ -284,11 +315,28 @@ section.hero {
             width: 90%;
 
             @include rs(xl-2) {
-                width: 110%;
+                width: 100%;
+                background: linear-gradient(
+                        to right,
+                        #FFFFFF 0%,
+                        #FFFFFF 1%,
+                        rgba(255, 255, 255, 0.8) 30%,
+                        rgba(255, 255, 255, 0.5) 50%,
+                        rgba(255, 255, 255, 0.2) 70%,
+                        rgba(255, 255, 255, 0) 110%
+                );
             }
 
             @include rs(lg) {
-                width: 130%;
+                background: linear-gradient(
+                        to right,
+                        #FFFFFF 0%,
+                        #FFFFFF 1%,
+                        rgba(255, 255, 255, 0.8) 30%,
+                        rgba(255, 255, 255, 0.5) 70%,
+                        rgba(255, 255, 255, 0.2) 90%,
+                        rgba(255, 255, 255, 0) 170%
+                );
             }
         }
 
@@ -377,6 +425,11 @@ section.hero {
             li {
                 font-size: 35px;
                 line-height: 70px;
+
+                @include rs(lg) {
+                    font-size: 20px;
+                    line-height: 40px;
+                }
             }
         }
     }
@@ -444,7 +497,8 @@ section.menu-boxes {
 }
 
 .line {
-    border: 1px solid #9A9A9A;
+    height: 1px;
+    background-color: #9A9A9A;
     width: 100%;
     margin-bottom: 80px;
 
@@ -520,30 +574,29 @@ section.menu-boxes {
     h2 {
         @include h2;
         margin-bottom: 40px;
+    }
 
-        &.gap {
-            font-size: 70px;
-            margin-bottom: 10px;
+    h4 {
+        @include h4;
 
-            @include rs(xl-5) {
-                font-size: 50px;
+        span {
+            display: block;
+
+            @include rs(xl-4) {
+                display: initial;
             }
         }
+    }
 
-        br {
-            @include rs(xl-5) {
-                display: none;
-            }
+    br {
+        @include rs(xl-5) {
+            display: none;
         }
     }
 
     p {
         font-size: 25px;
-        margin-bottom: 0;
-
-        &.col {
-            margin-top: 25px;
-        }
+        margin-bottom: 25px;
 
         @include rs(lg) {
             margin-bottom: 0;
@@ -1121,10 +1174,23 @@ section.reservation {
     padding-top: 90px;
     padding-bottom: 130px;
 
+    @include rs(xl-2) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
     .box {
         display: grid;
         grid-template-columns: 86fr 67fr;
         gap: 60px;
+
+        @include rs(xl-2) {
+            gap: 30px;
+        }
+
+        @include rs(lg) {
+            grid-template-columns: minmax(1px, 1fr);
+        }
 
         h5 {
             font-size: 40px;
@@ -1135,7 +1201,11 @@ section.reservation {
         p {
             font-size: 25px;
             max-width: 760px;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
+
+            @include rs(lg) {
+                max-width: 100%;
+            }
         }
 
         .price {
@@ -1143,6 +1213,10 @@ section.reservation {
             flex-direction: column;
             border: 10px solid #C8652F;
             padding: 20px 30px;
+
+            @include rs(lg) {
+                padding: 15px;
+            }
 
             span {
                 color: #C8652F;
@@ -1171,13 +1245,166 @@ section.reservation {
 section.hotel-images {
     padding-bottom: 130px;
 
+    @include rs(xl-2) {
+        padding-bottom: 60px;
+    }
+
+    @include rs(lg) {
+        padding-bottom: 30px;
+    }
+
+    .imagesBox {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        grid-template-areas:
+            "a b c"
+            "d b e"
+            "f f g";
+
+        @include rs(xl-4) {
+            gap: 20px;
+        }
+
+        @include rs(lg) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "a b"
+                "d b"
+                "f f"
+                "c e"
+                "g g";
+        }
+
+        @include rs(md) {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .img {
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &.img1,
+            &.img3,
+            &.img4,
+            &.img5,
+            &.img7 {
+                height: 506px;
+            }
+
+            &.img2 {
+                height: 100%;
+            }
+
+            &.img6 {
+                height: 506px;
+            }
+
+            &.img1 {
+                grid-area: a;
+            }
+
+            &.img2 {
+                grid-area: b;
+            }
+
+            &.img3 {
+                grid-area: c;
+            }
+
+            &.img4 {
+                grid-area: d;
+            }
+
+            &.img5 {
+                grid-area: e;
+            }
+
+            &.img6 {
+                grid-area: f;
+            }
+
+            &.img7 {
+                grid-area: g;
+            }
+        }
+
+        @include rs(sm) {
+            .img.img1,
+            .img.img2,
+            .img.img3,
+            .img.img4,
+            .img.img5,
+            .img.img6,
+            .img.img7 {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
+
+section.price-list {
+    padding-top: 90px;
+    padding-bottom: 100px;
+
+    h4 {
+        @include h4;
+        margin-bottom: 60px;
+    }
+
     .box {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
 
-        .index-image {
-            height: 506px;
+        .item:nth-of-type(1) {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        h5 {
+            font-size: 25px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            margin-bottom: 0;
+
+            li {
+                font-size: 25px;
+                line-height: 40px;
+            }
+        }
+
+        p {
+            font-size: 25px;
+            padding-bottom: 0;
+        }
+
+        .text-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            p {
+                margin-bottom: 0;
+            }
+
+            p:nth-of-type(1) {
+                margin-top: 40px;
+            }
         }
     }
 }

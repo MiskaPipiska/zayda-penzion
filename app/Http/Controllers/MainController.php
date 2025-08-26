@@ -90,24 +90,28 @@ class MainController extends Controller
 
         $IndexContent = [
             [
+                "type" => "left-section",
                 "title" => "UBYTOVANIE",
                 "text" => "V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na Vašu návštevu. ",
                 "image" => "images/index/hotel-room.jpg",
                 "button" => "viac info"
             ],
             [
+                "type" => "right-section",
                 "title" => "KUCHYŇA",
                 "text" => "V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na Vašu návštevu. ",
                 "image" => "images/index/kitchen.jpg",
                 "button" => "menu"
             ],
             [
+                "type" => "left-section",
                 "title" => "EVENTY",
                 "text" => "V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na Vašu návštevu. ",
                 "image" => "images/index/hotel-room.jpg",
                 "button" => "viac info"
             ],
             [
+                "type" => "right-section",
                 "title" => "ALPAKY",
                 "text" => "V našom penzióne máte k dispozícii ubytovanie v piatich apartmánoch s celkovou kapacitou ....... osôb. Apartmány sú priestranné vybavené ........... a wifi. Názvy našich apartmánov sú pomenované podľa okolitých kopcov: Liškova, Kýčerka, Hôrka, Grúnik a Tabla. Tešíme sa na Vašu návštevu. ",
                 "image" => "images/index/alpacas.jpg",
@@ -148,36 +152,46 @@ class MainController extends Controller
 
         $ContentSection = [
             [
+                "type" => "left-section",
                 "image" => "images/index/hotel-room.jpg",
-                "title" => "APARTMÁN\nLIŠKOVA",
+                "span" => "APARTMÁN",
+                "title" => "LIŠKOVA",
                 "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
                 "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
                 "button" => "viac info",
             ],
             [
+                "type" => "right-section",
                 "image" => "images/index/hotel-room.jpg",
-                "title" => "APARTMÁN\nKÝČERKA",
+                "span" => "APARTMÁN",
+                "title" => "KÝČERKA",
                 "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
                 "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
                 "button" => "viac info",
             ],
             [
+                "type" => "left-section",
                 "image" => "images/index/hotel-room.jpg",
-                "title" => "APARTMÁN\nHÔRKA",
+                "span" => "APARTMÁN",
+                "title" => "HÔRKA",
                 "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
                 "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
                 "button" => "viac info",
             ],
             [
+                "type" => "right-section",
                 "image" => "images/index/hotel-room.jpg",
-                "title" => "APARTMÁN\nTABLA",
+                "span" => "APARTMÁN",
+                "title" => "TABLA",
                 "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
                 "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
                 "button" => "viac info",
             ],
             [
+                "type" => "left-section",
                 "image" => "images/index/hotel-room.jpg",
-                "title" => "APARTMÁN\nGRÚNIK",
+                "span" => "APARTMÁN",
+                "title" => "GRÚNIK",
                 "capacity" => "KAPACITA: 4 OSOBY l  MANŽELSKÁ POSTEĽ  l  PRÍSTELKA 2",
                 "text" => "Táto izba je ideálna pre páry, ktoré hľadajú útulné a cenovo dostupné ubytovanie. S manželskou posteľou poskytuje komfortný a pohodlný spánok. Izba je vybavená televízorom a bezplatným Wi-Fi pripojením, aby ste mohli zostať v kontakte so svetom. ",
                 "button" => "viac info",
@@ -193,5 +207,50 @@ class MainController extends Controller
     public function getAccommodationDetail()
     {
         return view('accommodation-detail');
+    }
+
+    public function getPriceList()
+    {
+        $PriceItems = [
+            [
+                "title" => "APARTMÁN LIŠKOVA",
+                "tags" => [
+                    "celoročne 35 € / 1 noc / 1 osoba",
+                    "celoročne 20 € / viac nocí / 1 osoba"
+                ],
+            ],
+            [
+                "title" => "APARTMÁN KÝČERKA",
+                "tags" => [
+                    "celoročne 40 € / 1 noc / 1 osoba",
+                    "celoročne 25 € / viac nocí / 1 osoba"
+                ],
+            ],
+            [
+                "title" => "APARTMÁN HÔRKA",
+                "tags" => [
+                    "celoročne 40 € / 1 noc / 1 osoba",
+                    "celoročne 25 € / viac nocí / 1 osoba"
+                ],
+            ],
+            [
+                "title" => "APARTMÁN TABLA",
+                "tags" => [
+                    "celoročne 40 € / 1 noc / 1 osoba",
+                    "celoročne 25 € / viac nocí / 1 osoba"
+                ],
+            ],
+            [
+                "title" => "APARTMÁN GRÚNIK",
+                "tags" => [
+                    "celoročne 40 € / 1 noc / 1 osoba",
+                    "celoročne 25 € / viac nocí / 1 osoba"
+                ],
+            ],
+        ];
+
+        return view('price-list', compact(
+            'PriceItems',
+        ));
     }
 }

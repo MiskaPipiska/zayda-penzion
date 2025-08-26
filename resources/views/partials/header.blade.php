@@ -12,7 +12,7 @@
                 <a href="">eventy</a>
                 <a href="">alpaky</a>
                 <a href="">aktivity</a>
-                <a href="">cenník</a>
+                <a href="{{ route('price-list') }}">cenník</a>
                 <a href="">kontakt</a>
             </div>
             <div class="language">
@@ -35,7 +35,7 @@
                     <a href="">eventy</a>
                     <a href="">alpaky</a>
                     <a href="">aktivity</a>
-                    <a href="">cenník</a>
+                    <a href="{{ route('price-list') }}">cenník</a>
                     <a href="">kontakt</a>
                 </div>
                 <div class="language">
