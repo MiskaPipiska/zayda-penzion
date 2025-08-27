@@ -18,6 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+    const checkbox = document.getElementById('gdpr');
+    if (checkbox) {
+        checkbox.checked = false;
+    }
+});
+
 const defaultSliderSettings = {
     speed: 300,
     slidesToShow: 1,

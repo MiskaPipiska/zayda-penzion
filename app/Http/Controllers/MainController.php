@@ -206,7 +206,33 @@ class MainController extends Controller
 
     public function getAccommodationDetail()
     {
-        return view('accommodation-detail');
+        $imagesBox = [
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+        ];
+
+        return view('accommodation-detail', compact(
+            'imagesBox'
+        ));
     }
 
     public function getPriceList()
@@ -249,8 +275,91 @@ class MainController extends Controller
             ],
         ];
 
+        $imagesBox = [
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+            [
+                'image' => 'images/index/hotel-room.jpg',
+            ],
+        ];
+
         return view('price-list', compact(
             'PriceItems',
+            'imagesBox',
+        ));
+    }
+
+    public function getReservationForm()
+    {
+        return view('reservation-form');
+    }
+
+    public function getAlapcas()
+    {
+        $sliderImages = [
+            [
+                'img' => 'images/index/food.jpg',
+            ],
+            [
+                'img' => 'images/index/zayda.jpg',
+            ],
+            [
+                'img' => 'images/index/outside.jpg',
+            ],
+            [
+                'img' => 'images/index/food.jpg',
+            ],
+            [
+                'img' => 'images/index/zayda.jpg',
+            ],
+            [
+                'img' => 'images/index/outside.jpg',
+            ],
+        ];
+
+        $imagesBox = [
+            [
+                'image' => 'images/alpacas/alpacas1.jpg',
+            ],
+            [
+                'image' => 'images/alpacas/alpacas2.jpg',
+            ],
+            [
+                'image' => 'images/alpacas/alpacas3.jpg',
+            ],
+            [
+                'image' => 'images/alpacas/alpacas4.jpg',
+            ],
+            [
+                'image' => 'images/alpacas/alpacas5.jpg',
+            ],
+            [
+                'image' => 'images/alpacas/alpacas6.jpg',
+            ],
+            [
+                'image' => 'images/alpacas/alpacas7.jpg',
+            ],
+        ];
+
+        return view('alpacas', compact(
+            'sliderImages',
+            'imagesBox',
         ));
     }
 }

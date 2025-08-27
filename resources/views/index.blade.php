@@ -11,7 +11,7 @@
                     srdci Nízkych Beskydách. Kvalitné služby, ubytovanie, skvelé jedlo, naše alpaky a nádherná príroda v
                     okolí sú skvelým prostriedkom pre skutočný relax. </p>
                 <div class="btn">
-                    <a href="">rezervácia</a>
+                    <a href="{{ route('reservation-form') }}">rezervácia</a>
                 </div>
             </div>
         </div>

@@ -286,6 +286,17 @@ section.hero {
         }
     }
 
+    &.alpacas {
+        background-image: url("../images/alpacas/alpacas-hero.jpg");
+        margin-bottom: 100px;
+
+        @include rs(lg) {
+            margin-bottom: 40px;
+            min-height: 0;
+            max-height: 700px;
+        }
+    }
+
     @include rs(xl-2) {
         min-height: 850px;
     }
@@ -1354,12 +1365,20 @@ section.hotel-images {
 }
 
 section.price-list {
-    padding-top: 90px;
     padding-bottom: 100px;
+
+    @include rs(xl-2) {
+        padding-bottom: 40px;
+    }
+
 
     h4 {
         @include h4;
         margin-bottom: 60px;
+
+        @include rs(lg) {
+            margin-bottom: 20px;
+        }
     }
 
     .box {
@@ -1367,20 +1386,39 @@ section.price-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
 
+        @include rs(lg) {
+            grid-template-columns: minmax(1px, 1fr);
+            gap: 20px;
+        }
+
         .item:nth-of-type(1) {
             display: flex;
             flex-direction: column;
             gap: 40px;
+
+            @include rs(xl-2) {
+                gap: 20px;
+            }
         }
 
         h5 {
             font-size: 25px;
             font-weight: 700;
             margin-bottom: 5px;
+
+            @include rs(lg) {
+                text-align: center;
+            }
         }
 
         ul {
             margin-bottom: 0;
+
+            @include rs(lg) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
             li {
                 font-size: 25px;
@@ -1391,6 +1429,10 @@ section.price-list {
         p {
             font-size: 25px;
             padding-bottom: 0;
+
+            @include rs(lg) {
+                text-align: center;
+            }
         }
 
         .text-wrap {
@@ -1398,13 +1440,220 @@ section.price-list {
             flex-direction: column;
             gap: 40px;
 
+            @include rs(xl-2) {
+                gap: 20px;
+            }
+
             p {
                 margin-bottom: 0;
             }
 
             p:nth-of-type(1) {
                 margin-top: 40px;
+
+                @include rs(lg) {
+                    margin-top: 20px;
+                }
             }
         }
+    }
+}
+
+.contact-form {
+    padding-right: 400px;
+    padding-bottom: 190px;
+
+    @include rs(xl-4) {
+        padding-right: 0;
+    }
+
+    @include rs(lg) {
+        padding-bottom: 40px;
+    }
+
+    .input-wrap {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: start;
+
+        @include rs(xsm) {
+            justify-content: center;
+        }
+
+        a {
+            @include mainBtn()
+        }
+    }
+
+    .checkbox-wrap {
+        display: flex;
+        margin-bottom: 65px;
+
+        @include rs(lg) {
+            margin-bottom: 20px;
+        }
+    }
+
+    .gdpr-container {
+        display: flex;
+        gap: 10px;
+
+        label {
+            font-size: 20px;
+            color: #000;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+    }
+
+    .gdpr-checkbox {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 auto;
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: white;
+        border: 1px solid #9A9A9A;
+        accent-color: #C8652F;
+        cursor: pointer;
+        margin: 0;
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .gdpr-checkbox:checked::before {
+        content: '✔';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+        background-color: #C8652F;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        box-sizing: border-box;
+        border-radius: 0;
+    }
+
+    input:not([type='submit'], [type="checkbox"]), textarea, select {
+        border: 2px solid #9A9A9A;
+        padding: 25px;
+        font-size: 20px;
+        color: #000;
+
+        @include rs(md) {
+            padding: 18px;
+        }
+    }
+
+    input[type="date"] {
+        color: #9A9A9A;
+    }
+
+    input[type="date"]:focus,
+    input[type="date"]:valid {
+        color: #000;
+    }
+
+    label {
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 140%;
+        color: #000;
+
+        @include rs(lg) {
+            font-size: 16px;
+        }
+
+        @include rs(sm) {
+            font-size: 15px;
+        }
+    }
+
+    input[type="submit"] {
+        @include mainBtn;
+        width: 232px;
+
+        @include rs(lg) {
+            width: 203px;
+        }
+    }
+
+    textarea {
+        resize: none;
+        height: 140px;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+section.reservation-form {
+    h4 {
+        @include h4;
+        margin-bottom: 60px;
+
+        @include rs(lg) {
+            margin-bottom: 20px;
+        }
+    }
+
+    @include rs(lg) {
+        margin-top: 0;
+    }
+
+    select {
+        background: #fff;
+        color: #9A9A9A;
+    }
+
+    select:focus,
+    select:valid {
+        color: #000;
+    }
+
+    .top {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        @include rs(lg) {
+            grid-template-columns: minmax(1px, 1fr);
+        }
+
+        .item:nth-of-type(1) {
+            display: flex;
+            gap: 20px;
+
+            @include rs(md) {
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    @include rs(lg) {
+        flex-wrap: wrap;
+    }
+
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 }

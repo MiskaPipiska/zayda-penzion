@@ -33,17 +33,7 @@
             </div>
         </div>
     </section>
-    <section class="hotel-images">
-        <div class="container">
-            <div class="imagesBox">
-                <div class="img img1"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
-                <div class="img img2"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
-                <div class="img img3"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
-                <div class="img img4"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
-                <div class="img img5"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
-                <div class="img img6"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
-                <div class="img img7"><img src="{{asset('images/index/hotel-room.jpg')}}" alt=""></div>
-            </div>
-        </div>
-    </section>
+    <x-images-box
+        :images="$imagesBox"
+    />
 @endsection
