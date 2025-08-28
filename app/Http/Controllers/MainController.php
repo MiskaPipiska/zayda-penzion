@@ -362,4 +362,9 @@ class MainController extends Controller
             'imagesBox',
         ));
     }
+
+    public function getEvents()
+    {
+        return view('events');
+    }
 }

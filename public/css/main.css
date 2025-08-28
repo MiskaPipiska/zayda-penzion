@@ -327,6 +327,12 @@ section.hero {
   position: relative;
 }
 @media only screen and (max-width: 991px) {
+  section.hero {
+    min-height: 0;
+    max-height: 800px;
+  }
+}
+@media only screen and (max-width: 991px) {
   section.hero.detail {
     min-height: 0;
     max-height: 600px;
@@ -343,14 +349,13 @@ section.hero.alpacas {
     max-height: 700px;
   }
 }
-@media only screen and (max-width: 1299px) {
-  section.hero {
-    min-height: 850px;
-  }
+section.hero.events {
+  background-image: url("../images/events/events-hero.jpg");
 }
 @media only screen and (max-width: 991px) {
-  section.hero {
-    min-height: 500px;
+  section.hero.events {
+    min-height: 0;
+    max-height: 750px;
   }
 }
 section.hero .bg {
@@ -1591,16 +1596,10 @@ section.price-list .box .text-wrap p:nth-of-type(1) {
 
 .contact-form {
   padding-right: 400px;
-  padding-bottom: 190px;
 }
 @media only screen and (max-width: 1499px) {
   .contact-form {
     padding-right: 0;
-  }
-}
-@media only screen and (max-width: 991px) {
-  .contact-form {
-    padding-bottom: 40px;
   }
 }
 .contact-form .input-wrap {
@@ -1757,6 +1756,38 @@ section.price-list .box .text-wrap p:nth-of-type(1) {
   resize: none;
   height: 140px;
 }
+.contact-form select {
+  background: #fff;
+  color: #9A9A9A;
+}
+.contact-form select:focus,
+.contact-form select:valid {
+  color: #000;
+}
+.contact-form .top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media only screen and (max-width: 991px) {
+  .contact-form .top {
+    grid-template-columns: minmax(1px, 1fr);
+  }
+}
+.contact-form .top .item:nth-of-type(1) {
+  display: flex;
+  gap: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .contact-form .top .item:nth-of-type(1) {
+    flex-wrap: wrap;
+  }
+}
+.contact-form .wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -1768,6 +1799,14 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+section.reservation-form {
+  padding-bottom: 190px;
+}
+@media only screen and (max-width: 991px) {
+  section.reservation-form {
+    padding-bottom: 40px;
+  }
+}
 section.reservation-form h4 {
   font-size: 70px;
   font-weight: 700;
@@ -1795,47 +1834,54 @@ section.reservation-form h4 {
     margin-bottom: 20px;
   }
 }
-@media only screen and (max-width: 991px) {
-  section.reservation-form {
-    margin-top: 0;
-  }
-}
-section.reservation-form select {
-  background: #fff;
-  color: #9A9A9A;
-}
-section.reservation-form select:focus,
-section.reservation-form select:valid {
-  color: #000;
-}
-section.reservation-form .top {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+
+section.demand-form {
+  padding-top: 70px;
+  padding-bottom: 100px;
 }
 @media only screen and (max-width: 991px) {
-  section.reservation-form .top {
-    grid-template-columns: minmax(1px, 1fr);
+  section.demand-form {
+    padding-top: 30px;
+    padding-bottom: 40px;
   }
 }
-section.reservation-form .top .item:nth-of-type(1) {
-  display: flex;
-  gap: 20px;
+section.demand-form h4 {
+  font-size: 70px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
-@media only screen and (max-width: 767px) {
-  section.reservation-form .top .item:nth-of-type(1) {
-    flex-wrap: wrap;
+@media only screen and (max-width: 1499px) {
+  section.demand-form h4 {
+    font-size: 50px;
   }
 }
 @media only screen and (max-width: 991px) {
-  section.reservation-form {
-    flex-wrap: wrap;
+  section.demand-form h4 {
+    font-size: 40px;
+    text-align: center;
   }
 }
-section.reservation-form .wrap {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+@media only screen and (max-width: 440px) {
+  section.demand-form h4 {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.demand-form .text-wrap {
+    display: flex;
+    justify-content: center;
+  }
+}
+section.demand-form p {
+  font-size: 25px;
+  margin-bottom: 50px;
+  max-width: 630px;
+}
+@media only screen and (max-width: 991px) {
+  section.demand-form p {
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

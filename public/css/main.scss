@@ -279,6 +279,11 @@ section.hero {
     width: 100%;
     position: relative;
 
+    @include rs(lg) {
+        min-height: 0;
+        max-height: 800px;
+    }
+
     &.detail {
         @include rs(lg) {
             min-height: 0;
@@ -297,12 +302,13 @@ section.hero {
         }
     }
 
-    @include rs(xl-2) {
-        min-height: 850px;
-    }
+    &.events {
+        background-image: url("../images/events/events-hero.jpg");
 
-    @include rs(lg) {
-        min-height: 500px;
+        @include rs(lg) {
+            min-height: 0;
+            max-height: 750px;
+        }
     }
 
     .bg {
@@ -1461,14 +1467,9 @@ section.price-list {
 
 .contact-form {
     padding-right: 400px;
-    padding-bottom: 190px;
 
     @include rs(xl-4) {
         padding-right: 0;
-    }
-
-    @include rs(lg) {
-        padding-bottom: 40px;
     }
 
     .input-wrap {
@@ -1592,31 +1593,6 @@ section.price-list {
         resize: none;
         height: 140px;
     }
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
-section.reservation-form {
-    h4 {
-        @include h4;
-        margin-bottom: 60px;
-
-        @include rs(lg) {
-            margin-bottom: 20px;
-        }
-    }
-
-    @include rs(lg) {
-        margin-top: 0;
-    }
 
     select {
         background: #fff;
@@ -1647,13 +1623,68 @@ section.reservation-form {
         }
     }
 
-    @include rs(lg) {
-        flex-wrap: wrap;
-    }
-
     .wrap {
         display: flex;
         flex-direction: column;
         width: 100%;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+section.reservation-form {
+    padding-bottom: 190px;
+
+    @include rs(lg) {
+        padding-bottom: 40px;
+    }
+
+    h4 {
+        @include h4;
+        margin-bottom: 60px;
+
+        @include rs(lg) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+section.demand-form {
+    padding-top: 70px;
+    padding-bottom: 100px;
+
+    @include rs(lg) {
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+
+    h4 {
+        @include h4;
+        margin-bottom: 20px;
+    }
+
+    .text-wrap {
+        @include rs(lg) {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    p {
+        font-size: 25px;
+        margin-bottom: 50px;
+        max-width: 630px;
+
+        @include rs(lg) {
+            text-align: center;
+        }
     }
 }
