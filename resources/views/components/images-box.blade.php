@@ -2,7 +2,7 @@
 
 <section class="hotel-images">
     <div class="container">
-        <div class="imagesBox">
+        <div class="images-box">
             @foreach($images as $index => $image)
                 <div class="img img{{ $index + 1 }}">
                     {{-- Ak posielaš pole s kľúčom 'image', použijeme ho --}}

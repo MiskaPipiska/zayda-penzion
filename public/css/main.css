@@ -358,6 +358,15 @@ section.hero.events {
     max-height: 750px;
   }
 }
+section.hero.activities {
+  background-image: url("../images/activities/activities-hero.jpg");
+}
+@media only screen and (max-width: 991px) {
+  section.hero.activities {
+    min-height: 0;
+    max-height: 700px;
+  }
+}
 section.hero .bg {
   position: absolute;
   z-index: 1;
@@ -1031,9 +1040,6 @@ section.map iframe {
   right: 0;
   bottom: 0;
 }
-section.map .container, section.map .row {
-  height: 100%;
-}
 
 footer {
   background-color: #3F80A9;
@@ -1406,78 +1412,71 @@ section.hotel-images {
     padding-bottom: 30px;
   }
 }
-section.hotel-images .imagesBox {
+section.hotel-images .images-box {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   grid-template-areas: "a b c" "d b e" "f f g";
 }
 @media only screen and (max-width: 1499px) {
-  section.hotel-images .imagesBox {
+  section.hotel-images .images-box {
     gap: 20px;
   }
 }
 @media only screen and (max-width: 991px) {
-  section.hotel-images .imagesBox {
-    grid-template-columns: 1fr 1fr;
+  section.hotel-images .images-box {
     grid-template-areas: "a b" "d b" "f f" "c e" "g g";
   }
 }
 @media only screen and (max-width: 767px) {
-  section.hotel-images .imagesBox {
+  section.hotel-images .images-box {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 }
-section.hotel-images .imagesBox .img {
+section.hotel-images .images-box .img {
   width: 100%;
   overflow: hidden;
 }
-section.hotel-images .imagesBox .img img {
+section.hotel-images .images-box .img img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-section.hotel-images .imagesBox .img.img1, section.hotel-images .imagesBox .img.img3, section.hotel-images .imagesBox .img.img4, section.hotel-images .imagesBox .img.img5, section.hotel-images .imagesBox .img.img7 {
+section.hotel-images .images-box .img.img1, section.hotel-images .images-box .img.img3, section.hotel-images .images-box .img.img4, section.hotel-images .images-box .img.img5, section.hotel-images .images-box .img.img6, section.hotel-images .images-box .img.img7 {
   height: 506px;
 }
-section.hotel-images .imagesBox .img.img2 {
-  height: 100%;
-}
-section.hotel-images .imagesBox .img.img6 {
-  height: 506px;
-}
-section.hotel-images .imagesBox .img.img1 {
+section.hotel-images .images-box .img.img1 {
   grid-area: a;
 }
-section.hotel-images .imagesBox .img.img2 {
+section.hotel-images .images-box .img.img2 {
   grid-area: b;
+  height: 100%;
 }
-section.hotel-images .imagesBox .img.img3 {
+section.hotel-images .images-box .img.img3 {
   grid-area: c;
 }
-section.hotel-images .imagesBox .img.img4 {
+section.hotel-images .images-box .img.img4 {
   grid-area: d;
 }
-section.hotel-images .imagesBox .img.img5 {
+section.hotel-images .images-box .img.img5 {
   grid-area: e;
 }
-section.hotel-images .imagesBox .img.img6 {
+section.hotel-images .images-box .img.img6 {
   grid-area: f;
 }
-section.hotel-images .imagesBox .img.img7 {
+section.hotel-images .images-box .img.img7 {
   grid-area: g;
 }
 @media only screen and (max-width: 575px) {
-  section.hotel-images .imagesBox .img.img1,
-  section.hotel-images .imagesBox .img.img2,
-  section.hotel-images .imagesBox .img.img3,
-  section.hotel-images .imagesBox .img.img4,
-  section.hotel-images .imagesBox .img.img5,
-  section.hotel-images .imagesBox .img.img6,
-  section.hotel-images .imagesBox .img.img7 {
+  section.hotel-images .images-box .img.img1,
+  section.hotel-images .images-box .img.img2,
+  section.hotel-images .images-box .img.img3,
+  section.hotel-images .images-box .img.img4,
+  section.hotel-images .images-box .img.img5,
+  section.hotel-images .images-box .img.img6,
+  section.hotel-images .images-box .img.img7 {
     height: 100%;
     width: 100%;
   }
@@ -1594,14 +1593,6 @@ section.price-list .box .text-wrap p:nth-of-type(1) {
   }
 }
 
-.contact-form {
-  padding-right: 400px;
-}
-@media only screen and (max-width: 1499px) {
-  .contact-form {
-    padding-right: 0;
-  }
-}
 .contact-form .input-wrap {
   display: flex;
   flex-direction: column;
@@ -1880,6 +1871,159 @@ section.demand-form p {
 }
 @media only screen and (max-width: 991px) {
   section.demand-form p {
+    text-align: center;
+  }
+}
+
+section.activity {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+@media only screen and (max-width: 1499px) {
+  section.activity {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+section.activity .box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px 40px;
+  margin-bottom: 100px;
+}
+@media only screen and (max-width: 1499px) {
+  section.activity .box {
+    gap: 50px 30px;
+    margin-bottom: 60px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.activity .box {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  section.activity .box {
+    grid-template-columns: minmax(1px, 1fr);
+    gap: 30px;
+  }
+}
+section.activity .box .image {
+  width: 100%;
+  height: 506px;
+}
+section.activity .box .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section.activity .box .item {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+section.activity .box h4 {
+  font-size: 70px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-bottom: 20px;
+  min-height: 170px;
+}
+@media only screen and (max-width: 1499px) {
+  section.activity .box h4 {
+    font-size: 50px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.activity .box h4 {
+    font-size: 40px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 440px) {
+  section.activity .box h4 {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 1499px) {
+  section.activity .box h4 {
+    min-height: 120px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  section.activity .box h4 {
+    min-height: 100px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  section.activity .box h4 {
+    min-height: initial;
+    margin-bottom: 10px;
+  }
+}
+section.activity .box .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media only screen and (max-width: 767px) {
+  section.activity .box .wrapper {
+    gap: 15px;
+  }
+}
+section.activity .box .wrap {
+  display: flex;
+  flex-direction: column;
+}
+section.activity .box p {
+  font-size: 25px;
+  margin-bottom: 25px;
+  flex: 1;
+}
+@media only screen and (max-width: 991px) {
+  section.activity .box p {
+    text-align: center;
+  }
+}
+section.activity .box .btn {
+  display: flex;
+  justify-content: start;
+}
+@media only screen and (max-width: 991px) {
+  section.activity .box .btn {
+    justify-content: center;
+  }
+}
+section.activity .box .btn a {
+  pointer-events: all;
+  color: #fff;
+  background-color: #C8652F;
+  padding: 15px 0;
+  font-size: 25px;
+  font-weight: 400;
+  transition: 0.2s ease;
+  width: 205px;
+  display: flex;
+  justify-content: center;
+}
+section.activity .box .btn a:hover {
+  transition: 0.2s ease;
+  background-color: #664837;
+}
+@media only screen and (max-width: 991px) {
+  section.activity .box .btn a {
+    font-size: 20px;
+    width: 150px;
+    padding: 10px;
+  }
+}
+section.activity .links p {
+  font-size: 25px;
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 767px) {
+  section.activity .links p {
     text-align: center;
   }
 }

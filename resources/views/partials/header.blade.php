@@ -1,5 +1,5 @@
 @php
-    $excluded = ['index', 'accommodation-detail', 'alpacas', 'events'];
+    $excluded = ['index', 'accommodation-detail', 'alpacas', 'events', 'activities'];
 @endphp
 
 <header class="{{ in_array(Route::currentRouteName(), $excluded) ? '' : 'header-secondary' }}">
@@ -11,7 +11,7 @@
                 <a href="">menu</a>
                 <a href="{{ route('events') }}">eventy</a>
                 <a href="{{ route('alpacas') }}">alpaky</a>
-                <a href="">aktivity</a>
+                <a href="{{ route('activities') }}">aktivity</a>
                 <a href="{{ route('price-list') }}">cenník</a>
                 <a href="">kontakt</a>
             </div>
@@ -32,10 +32,10 @@
                     <a href="">o nás</a>
                     <a href="{{ route('accommodation') }}" class="{{ Route::currentRouteName() === 'accommodation' ? 'active' : '' }}">ubytovanie</a>
                     <a href="">menu</a>
-                    <a href="{{ route('events') }}">eventy</a>
-                    <a href="{{ route('alpacas') }}">alpaky</a>
-                    <a href="">aktivity</a>
-                    <a href="{{ route('price-list') }}">cenník</a>
+                    <a href="{{ route('events') }}" class="{{ Route::currentRouteName() === 'events' ? 'active' : '' }}">eventy</a>
+                    <a href="{{ route('alpacas') }}" class="{{ Route::currentRouteName() === 'alpacas' ? 'active' : '' }}">alpaky</a>
+                    <a href="{{ route('activities') }}" class="{{ Route::currentRouteName() === 'activities' ? 'active' : '' }}">aktivity</a>
+                    <a href="{{ route('price-list') }}" class="{{ Route::currentRouteName() === 'price-list' ? 'active' : '' }}">cenník</a>
                     <a href="">kontakt</a>
                 </div>
                 <div class="language">

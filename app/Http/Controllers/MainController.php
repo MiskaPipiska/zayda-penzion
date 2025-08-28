@@ -367,4 +367,51 @@ class MainController extends Controller
     {
         return view('events');
     }
+
+    public function getActivities()
+    {
+        $activityBox = [
+            [
+                'img' => 'images/activities/certov-kamen.jpg',
+                'title' => 'ČERTOV KAMEŇ',
+                'text' => 'Výrazný skalný útvar s vytesanou tvárou v masíve Kamjana, cca 10 km od Výravy. Skvelý pre
+                        nenáročnú turistiku spojenú s miestnym folklórom.',
+                'button' => 'viac info',
+            ],
+            [
+                'img' => 'images/activities/hostovicke-luky.jpg',
+                'title' => 'HOSTOVICKÉ LÚKY',
+                'text' => 'Malebná planina s levanduľovými poľami, ktorá pripomína Provensálsko. Ideálna na pohodové prechádzky alebo piknik.',
+                'button' => 'viac info',
+            ],
+            [
+                'img' => 'images/activities/sninsky-kamen.jpg',
+                'title' => 'SNINSKÝ KAMEŇ',
+                'text' => 'Výrazná dominanta Vihorlatských vrchov, vyhliadka ponúka pohľad na lesy, jazero Morské oko a pri dobrej viditeľnosti aj Tatry.',
+                'button' => 'viac info',
+            ],
+            [
+                'img' => 'images/activities/nezabec.jpg',
+                'title' => 'NEŽABEC',
+                'text' => 'Tretí najvyšší vrch vo Vihorlatoch (1023 m n. m.), pre milovníkov stredne náročnej turistiky s pekným výhľadom.',
+                'button' => 'viac info',
+            ],
+            [
+                'img' => 'images/activities/morske-oko.jpg',
+                'title' => 'MORSKÉ OKO',
+                'text' => 'Najväčšie sopečné jazero na Slovensku, skvelá lokalita pre rodinnú turistiku i fotografie.',
+                'button' => 'viac info',
+            ],
+            [
+                'img' => 'images/activities/kolonicke-sedlo.jpg',
+                'title' => 'KOLONICKÉ SEDLO',
+                'text' => 'Astronomické observatórium v oblasti s minimálnym svetelným znečistením – ideálne pre nočný zážitok z hviezd.',
+                'button' => 'viac info',
+            ],
+        ];
+
+        return view('activities', compact(
+            'activityBox'
+        ));
+    }
 }

@@ -10,3 +10,4 @@ Route::get('/cennik', [MainController::class, 'getPriceList'])->name('price-list
 Route::get('/formular', [MainController::class, 'getReservationForm'])->name('reservation-form');
 Route::get('/alpaky', [MainController::class, 'getAlapcas'])->name('alpacas');
 Route::get('/eventy', [MainController::class, 'getEvents'])->name('events');
+Route::get('/aktivity', [MainController::class, 'getActivities'])->name('activities');
